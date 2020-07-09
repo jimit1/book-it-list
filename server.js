@@ -10,12 +10,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./client/"));
 
-const apiRoutes = require("./routes/api-routes");
-app.use(apiRoutes);
-
-const clientRoutes = require("./routes/client-routes");
-app.use(clientRoutes);
-
 app.use(
   session({
     secret: process.env.SECRET,
@@ -26,6 +20,12 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+const apiRoutes = require("./routes/api-routes");
+app.use(apiRoutes);
+
+const clientRoutes = require("./routes/client-routes");
+app.use(clientRoutes);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
