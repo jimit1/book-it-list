@@ -41,7 +41,7 @@ router.patch("/api", (req, res) => {
   editTodo({
     todoText: req.body.todoText,
     todoId: parseInt(req.body.todoId),
-    todoCompleted: req.body.completed === "false" ? false : true,
+    todoCompleted: req.body.todoCompleted === "false" ? false : true,
   })
     .then((editRes) => res.json(editRes))
     .catch((err) => res.json(err));
