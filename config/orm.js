@@ -48,7 +48,7 @@ const editTodo = (obj) => {
       "UPDATE todos SET ? WHERE ?",
       [
         { text: obj.todoText, completed: obj.todoCompleted },
-        { id: obj.todoID },
+        { id: obj.todoId },
       ],
       (err) => {
         err ? reject(err) : resolve("Success");
