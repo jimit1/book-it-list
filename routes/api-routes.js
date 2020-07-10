@@ -18,13 +18,13 @@ router.post("/api/signup", (req, res) => {
     .catch((err) => res.status(401).json(err));
 });
 
+// working on web
 router.get("/logout", (req, res) => {
   req.logout();
-  res.send("yes");
-  // res.redirect("/");
+  res.redirect("/");
 });
 
-router.get("api/user_data", (req, res) => {
+router.get("/api/user_data", (req, res) => {
   !req.user
     ? res.json({ message: "No user Present" })
     : res.json({ email: req.user.email, id: req.user.id });
@@ -38,35 +38,35 @@ const {
   editTodo,
 } = require("../config/orm");
 
-// see all todos
+// see all todos--working, showing todos on web
 router.get("/api", (req, res) => {
   seeAllTodos()
     .then((allTodos) => res.json(allTodos))
     .catch((err) => res.json(err));
 });
 
-// search single todo by ID
+// search single todo by ID, working on web.
 router.get("/api/find/:id", (req, res) => {
   showTodo(parseInt(req.params.id))
     .then((todo) => res.json(todo))
     .catch((err) => res.json(err));
 });
 
-// create a new todo
+// create a new todo, shows all todos working on web.
 router.post("/api", (req, res) => {
   addTodo(req.body.text)
     .then((submitResult) => res.json(submitResult))
     .catch((err) => res.json(err));
 });
 
-// delete a todo
+// delete a todo; works on postman, not on web.
 router.delete("/api/delete/:id", (req, res) => {
   deleteTodo(parseInt(req.params.id))
     .then((delRes) => res.json(delRes))
     .catch((err) => res.json(err));
 });
 
-// edit a todo
+// edit a todo; works on postman, not on web.
 router.patch("/api", (req, res) => {
   editTodo({
     todoText: req.body.todoText,
