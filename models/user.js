@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
 
   //Custom Method --used in line 20 of passport.js
   User.prototype.validPassword = function (password) {
-    return bcrytpjs.compareSync(password, this.password);
+    return bcryptjs.compareSync(password, this.password);
   };
 
   User.addHook("beforeCreate", (user) => {
