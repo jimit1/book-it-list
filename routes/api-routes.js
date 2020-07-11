@@ -18,7 +18,6 @@ router.post("/api/signup", (req, res) => {
     .catch((err) => res.status(401).json(err));
 });
 
-// working on web
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
