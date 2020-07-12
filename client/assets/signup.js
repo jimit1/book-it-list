@@ -1,6 +1,7 @@
 $(document).ready(function () {
   const signupForm = $("#signupForm");
   const emailInput = $("#emailInput");
+  const userName = $("#userName");
   const pwInput = $("#pwInput");
 
   signupForm.on("submit", function (e) {
@@ -9,6 +10,7 @@ $(document).ready(function () {
     const User = {
       email: emailInput.val().trim(),
       password: pwInput.val().trim(),
+      userName: userName.val().trim(),
     };
 
     $.ajax({
