@@ -4,29 +4,41 @@ const passport = require("../config/passport.js");
 const db = require("../models");
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
-  res.json({ email: req.user.email, id: req.user.id });
+  res.json({
+    email: req.user.email,
+    id: req.user.id,
+  });
 });
 
+// Sign Up
 router.post("/api/signup", (req, res) => {
   db.User.create({
     email: req.body.email,
     password: req.body.password,
+    username: req.body.username,
   })
+    // redirect to login
     .then(() => {
       res.redirect(307, "/api/login");
     })
     .catch((err) => res.status(401).json(err));
 });
-
+// Log OUT
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.send("yes");
+  // res.redirect("/");
 });
 
+// user data or member data
 router.get("/api/user_data", (req, res) => {
   !req.user
     ? res.json({ message: "No user Present" })
-    : res.json({ email: req.user.email, id: req.user.id });
+    : res.json({
+        email: req.user.email,
+        id: req.user.id,
+        username: req.user.username,
+      });
 });
 
 const {

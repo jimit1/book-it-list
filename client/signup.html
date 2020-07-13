@@ -52,83 +52,110 @@
         />
         <div class="section"></div>
 
-        <h5 class="indigo-text">Please, create your NEW account!</h5>
+        <h2 class="indigo-text">Welcome to BOOK IT!</h2>
         <div class="section"></div>
 
         <div class="container">
-
           <div
-            class="z-depth-1 grey lighten-4 row"
+            class="z-depth-10 grey lighten-4 row"
             style="
               display: inline-block;
-              padding: 32px 48px 0px 48px;
-              border: 1px solid #eee;
+              padding: 64px 136px 0px 136px;
+              border: 10px solid #eee;
             "
           >
-          <ul class="collapsible">
-            <li>
-              <div class="collapsible-header"><i class="material-icons">filter_drama</i>Log In</div>
-                <div class="collapsible-body"><span>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" id="emailInput" />
-                    <label for="email">Enter your email</label></span></div>
+            <!-- Form starts -->
+          <form class="col s12" id="loginForm">
+            <div class="row">
+              <div class="col s12"></div>
+            </div>
+            <!-- collapsible -->
+            <ul class="collapsible popout">
+            <!-- LOG IN -->
+              <li>
+                <div class="collapsible-header" >Log In!</div>
+                <div class="collapsible-body">
+                    <!-- email for log in -->
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" id="emailInput" />
+                      <label for="email">Enter your email</label>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="password" id="pwInput" />
-                    <label for="password">Enter your password</label>
-                  </div>
-                  <label style="float: right;">
-                    <a class="pink-text" href="#!"><b>Forgot Password?</b></a>
-                  </label>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div class="collapsible-header"><i class="material-icons">filter_drama</i>Sign Up</div>
-                <div class="collapsible-body"><span>
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="text" id="emailInput" />
-                    <label for="email">Enter your email</label></span></div>
-                  </div>
-                </div>
+                    <!-- pw for log in -->
                 <div class="row">
                   <div class="input-field col s12">
                     <input type="password" id="pwInput" />
                     <label for="password">Enter your password</label>
                   </div>
-                </form>
+                </div>
+                <button
+                type="submit"
+                class="col s12 btn btn-large waves-effect indigo"
+              >
+                Click to Log In
+              </button>
+            </form>
+                </div>
+
+              </li>
+
+              <!-- SIGN UP -->
+              <form class="col s12" id="signupForm">
+                <div class="row">
+                  <div class="col s12"></div>
+                </div>
+                <!-- collapsible -->
+                <ul class="collapsible popout">
+                <!-- LOG IN -->
+                  <li>
+            <div class="collapsible-header">Sign Up!</div>
+            <div class="collapsible-body">
+                <!-- email for sign up -->
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" id="emailInput"/>
+                  <label for="email" >Enter your email</label>
                 </div>
               </div>
-            </li>
-
-          <br />
-
-              <label style="float: right;">
-                <a class="pink-text" href="#!"><b>Forgot Password?</b></a>
-              </label>
-              <center>
-                <div class="row">
-                  <button
-                    type="submit"
-                    class="col s12 btn btn-large waves-effect indigo"
-                  >
-                    Register
-                  </button>
-                </div>
-              </center>
-
+                <!-- pw for sign up -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="password" id="pwInput" />
+                <label for="password">Enter your password</label>
+              </div>
+            </div>
+                <!-- un for sign up -->
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="username" id="unInput" />
+                <label for="username">Enter a Username</label>
+              </div>
+            </div>
+            <button
+            type="submit"
+            class="col s12 btn btn-large waves-effect indigo"
+          >
+            Click to Sign Up
+          </button>
           </div>
-        </div>
-        <a href="/login.html">Login Here</a>
-      </center>
-    </ul>
-      <div class="section"></div>
-      <div class="section"></div>
+        </li>
+      </ul>
+    </form>
+    
+          <div class="section"></div>
+          <div class="section"></div> 
+                  <br />
+                  <center>
+                    <div class="row">
+                    </div>
+                    <label style="float: right;">
+                      <h6 class="pink-text" href="#!" align="right">Forgot Password?</h6>
+                    </label>
+                  </center>
+
+
+
     </main>
 
     <script
