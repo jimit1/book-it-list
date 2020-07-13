@@ -21,7 +21,7 @@ router.post("/api/signup", (req, res) => {
     // if passed, then redirect to login
     .then(() => {
       // 307 is automatic redirection
-      res.redirect(307, "/api/login");
+      res.redirect(307, "/api/feed");
     })
     // if NOT passed, disconnect err
     .catch((err) => res.status(401).json(err));
@@ -30,8 +30,6 @@ router.post("/api/signup", (req, res) => {
 router.get("/logout", (req, res) => {
   // to end session with user
   req.logout();
-  // just enters "yes" if logout is complete
-  res.send("yes");
   // to redirect session after logout
   res.redirect("/");
 });
