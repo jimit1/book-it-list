@@ -1,27 +1,30 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const isAuthenticated = require("../config/middleware/isAuthenticated");
+const isAuthenticated = require("../config/middleware/isAuthenticated.js");
 
-//localhost:3000
+//localhost:3000 page
 router.get("/", (req, res) => {
+  // if user exists, send to feed page
   if (req.user) {
-    console.log(req.user);
-    res.redirect("/home");
+    res.redirect("/feed");
   }
-  //register for new non-existing account
+  //if user does NOT exist, redirect to signup page
   res.sendFile(path.join(__dirname, "../client/signup.html"));
 });
-
+// Log In page
 router.get("/login", (req, res) => {
   if (req.user) {
-    res.redirect("/home");
+    // if logged in redirect to feed page
+    res.redirect("/feed");
   }
+  // if NOT logged in redirect to signup page
   res.sendFile(path.join(__dirname, "../client/login.html"));
 });
 
-router.get("/home", isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/home.html"));
+// FEED page
+router.get("/feed", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/feed.html"));
 });
 
 // router.get("/edit", (req, res) => {

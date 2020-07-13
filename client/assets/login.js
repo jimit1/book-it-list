@@ -17,7 +17,7 @@ $(document).ready(function () {
       data: User,
     }).then(() => {
       //from Client Routes
-      window.location.replace("/home");
+      window.location.replace("/feed");
     });
   });
 });
