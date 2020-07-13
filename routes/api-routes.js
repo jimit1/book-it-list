@@ -9,6 +9,7 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
     email: req.user.email,
     id: req.user.id,
   });
+  console.log("howdy!");
 });
 
 // Sign Up Route
@@ -21,7 +22,7 @@ router.post("/api/signup", (req, res) => {
     // if passed, then redirect to login
     .then(() => {
       // 307 is automatic redirection
-      res.redirect(307, "/api/feed");
+      res.redirect(303, "/api/feed");
     })
     // if NOT passed, disconnect err
     .catch((err) => res.status(401).json(err));

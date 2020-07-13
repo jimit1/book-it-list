@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $.ajax({
     type: "GET",
-    url: "/api/feed",
+    url: "/",
   }).then((user) => {
-    console.log(user);
+    console.log("/");
     $("#userId").text(user.id);
   });
 });

@@ -18,7 +18,7 @@ $(document).ready(function () {
       url: "/api/signup",
       data: User,
     }).then(() => {
-      window.location.replace("/");
+      window.location.replace("/api/feed");
     });
   });
 });
