@@ -9,15 +9,18 @@ passport.use(
       usernameField: "email",
     },
     (email, password, done) => {
+      // is new email unique?
       db.User.findOne({
         where: {
           email: email,
         },
+        // if email is NOT unique
       }).then((dbUser) => {
         if (!dbUser) {
           return done(null, false, {
             message: "Incorrect Email",
           });
+          // if email is incorrectly entered
         } else if (!dbUser.validPassword(password)) {
           return done(null, false, {
             message: "Password is incorrect",
@@ -28,7 +31,7 @@ passport.use(
     }
   )
 );
-
+// limits login duration
 passport.serializeUser((user, cb) => {
   cb(null, user);
 });
