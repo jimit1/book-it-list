@@ -22,6 +22,16 @@ router.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/login.html"));
 });
 
+// Sign Up page
+router.get("/signup", (req, res) => {
+  if (req.user) {
+    // if logged in redirect to feed page
+    res.redirect("/feed");
+  }
+  // if NOT logged in redirect to signup page
+  res.sendFile(path.join(__dirname, "../client/login.html"));
+});
+
 // FEED page
 router.get("/feed", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/feed.html"));
