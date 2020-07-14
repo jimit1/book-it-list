@@ -2,6 +2,7 @@ $(document).ready(function () {
   const signupForm = $("#signupForm");
   const emailInput = $("#emailInput");
   const pwInput = $("#pwInput");
+  const unInput = $("#unInput");
 
   signupForm.on("submit", function (e) {
     e.preventDefault();
@@ -9,6 +10,7 @@ $(document).ready(function () {
     const User = {
       email: emailInput.val().trim(),
       password: pwInput.val().trim(),
+      username: unInput.val().trim(),
     };
 
     $.ajax({
@@ -16,7 +18,7 @@ $(document).ready(function () {
       url: "/api/signup",
       data: User,
     }).then(() => {
-      window.location.replace("/");
+      window.location.replace("/api/feed");
     });
   });
 });

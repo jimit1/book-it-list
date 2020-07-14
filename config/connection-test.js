@@ -10,7 +10,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     user: "root",
     password: "Booyah5%",
-    database: "todo_db",
+    database: "todo_test_db",
   });
 }
 
