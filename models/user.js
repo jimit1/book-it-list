@@ -16,12 +16,20 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
   });
 
   //Custom Method --used in line 20 of passport.js
   User.prototype.validPassword = function (password) {
     return bcryptjs.compareSync(password, this.password);
   };
+
+  //encription
+  // not sure I understand this
 
   User.addHook("beforeCreate", (user) => {
     user.password = bcryptjs.hashSync(
@@ -30,6 +38,5 @@ module.exports = function (sequelize, DataTypes) {
       null
     );
   });
-
   return User;
 };
