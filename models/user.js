@@ -16,9 +16,10 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    username: {
+    userName: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
   });
 
