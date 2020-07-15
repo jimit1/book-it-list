@@ -61,149 +61,96 @@
         rel="stylesheet"
         media="screen,projection"
       />
-
-
-
   </head>
 
   <body>
+
+    <!-- Nav Bar -->
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo left retro-shadow"
-          >Book-it!</a
-        >
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="#">
-              <i class="material-icons">menu</i>
-              <!-- <img src="../bookit-logo.png" alt="logo as menu" /> -->
-            </a>
-          </li>
-        </ul>
-
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger right"
-          ><i class="material-icons">menu</i></a
-        >
+        <a id="logo-container" href="#" class="brand-logo left retro-shadow">Book-it!</a>
       </div>
     </nav>
 
 
-
-
-
-    <div class="section"></div>
-    <main>
-      <center>
-
-        <div class="section"></div>
-
-        <div class="section"></div>
-
-        <div class="container">
-          <div
-            class="z-depth-10 grey lighten-4 row"
-            style="
-              display: inline-block;
-              padding: 64px 136px 0px 136px;
-              border: 10px solid #eee;
-            "
-          >
-            <!-- Form starts -->
-          <form class="col s12" id="loginForm">
-            <div class="row">
-              <div class="col s12"></div>
-            </div>
-            <!-- collapsible -->
-            <ul class="collapsible popout">
-            <!-- LOG IN -->
-              <li>
-                <div class="collapsible-header" >Log In!</div>
-                <div class="collapsible-body">
-                    <!-- email for log in -->
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input type="text" id="loginEmailInput" />
-                      <label for="email">Enter your email</label>
-                    </div>
-                  </div>
-                    <!-- pw for log in -->
-                <div class="row">
-                  <div class="input-field col s12">
-                    <input type="password" id="loginPwInput" />
-                    <label for="password">Enter your password</label>
-                  </div>
-                </div>
-                <button
-                type="submit"
-                class="col s12 btn btn-large waves-effect indigo"
-              >
-                Click to Log In
-              </button>
-            </form>
-                </div>
-
-              </li>
-
-              <!-- SIGN UP -->
-              <form class="col s12" id="signupForm">
-                <div class="row">
-                  <div class="col s12"></div>
-                </div>
-                <!-- collapsible -->
-                <ul class="collapsible popout">
-                <!-- LOG IN -->
-                  <li>
-            <div class="collapsible-header">Sign Up!</div>
-            <div class="collapsible-body">
-                <!-- email for sign up -->
-              <div class="row">
-                <div class="input-field col s12">
-                  <input type="text" id="emailInput"/>
-                  <label for="email" >Enter your email</label>
-                </div>
-              </div>
-                <!-- pw for sign up -->
-            <div class="row">
+    <div class="row">
+      <div class="col s12"></div>
+    </div>
+      <ul id="slide-out" class="sidenav">
+        <div class="user-view">
+          <div class="background"><img src="/HOMEWORK/Team_2_Second_Project/bucketList/client/img/paris.jpeg"></div>
+            <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+            <a href="#name"><span class="black-text name">John Doe</span></a>
+            <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
+        </div>
+          <!-- white space -->
+      <li>
+        <a href="#!"><i class="Small material-icons">cloud</i>LOG IN!</a>
+        <form class="col s12" id="loginForm">
+            <!-- email for log in -->
+          <div class="row">
               <div class="input-field col s12">
-                <input type="password" id="pwInput" />
-                <label for="password">Enter your password</label>
+                <input type="text" id="loginEmailInput" />
+                <label for="email">Enter your email</label>
               </div>
-            </div>
-                <!-- un for sign up -->
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="unInput" />
-                <label for="password">Enter a Username</label>
-              </div>
-            </div>
-
-            <button
-            type="submit"
-            class="col s12 btn btn-large waves-effect indigo"
-          >
-            Click to Sign Up
-          </button>
           </div>
+            <!-- pw for log in -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="loginPwInput" />
+              <label for="password">Enter your password</label>
+
+              <button
+                type="submit"
+                class="col s12 btn btn-large waves-effect indigo">
+                Click to Log In
+                </button>
+        </form>
         </li>
-      </ul>
-    </form>
-    
-          <div class="section"></div>
-          <div class="section"></div> 
-                  <br />
-                  <center>
-                    <div class="row">
-                    </div>
-                    <label style="float: right;">
-                      <h6 class="pink-text" href="#!" align="right">Forgot Password?</h6>
-                    </label>
-                  </center>
 
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row"></div>
 
+      <li><a href="#!"><i class="Small material-icons">cloud_circle</i>SIGN UP!</a></li>
+      <form class="col s12" id="signupForm">
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="emailInput"/>
+            <label for="email" >Enter your email</label>
+          </div>
+        </div>
+        <!-- pw for sign up -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="password" id="pwInput" />
+        <label for="password">Enter your password</label>
+      </div>
+    </div>
+        <!-- un for sign up -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input type="password" id="unInput" />
+        <label for="password">Enter a Username</label>
+        <button
+        type="submit"
+        class="col s12 btn btn-large waves-effect indigo"
+      >
+        Click to Sign Up
+        </button>
+      </form>
+      </li>
+    </ul>
 
+          <br />
+          <center>
+            <div class="row">
+            </div>
+            <label style="float: right;">
+              <h6 class="pink-text" href="#!" align="right">Forgot Password?</h6>
+            </label>
+          </center>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </main>
 
     <script
