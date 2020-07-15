@@ -26,32 +26,36 @@ $(document).ready(function () {
     arr.forEach((todo) => {
       $(".card-container").prepend(
         `
-      <div class="card mb-2">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">
-            ${msg}
-          </h6>
-          <p class="card-text">
-            ${todo.text}
-          </p>
+      Jim added an item to ${todo.category}
+      <div class="row">
+        <div class="col s12 m10 offset-m1" >
+          <h5>card reveal with carousel</h5>
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <div class="carousel carousel-slider center">
+                <div class="carousel-item red white-text" href="#one!">
+                  <img class="activator" src="${todo.imgURL}" />
+                </div>              
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"
+                >Visit Paris<i class="material-icons right">more_vert</i></span
+              >
+              <p><a href="#">${user}</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"
+                >${todo.title}<i class="material-icons right">close</i></span
+              >
+              <p>
+                ${todo.details}
+                <br>
+                ${todo.imptURL}
 
-          <div class="text-center">
-            <button
-              id="btnUpdate" 
-              data-id=${todo.id}
-              style="width: 150px;"
-              class="btn btn-outline-success mr-2"
-            >
-              Edit
-            </button>
-            <button
-              id="btnDelete" 
-              data-id=${todo.id}
-              style="width: 150px;"
-              class="btn btn-outline-danger ml-2"
-            >
-              Delete
-            </button>
+              </p>
+
+            </div>
           </div>
         </div>
       </div>
