@@ -18,6 +18,16 @@ nav .brand-logo {
   color: rgb(238, 64, 151);
 }
 
+.signup-nav {
+  padding: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 1;
+}
+
 p {
   line-height: 2rem;
 }
