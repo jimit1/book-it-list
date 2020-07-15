@@ -25,6 +25,16 @@ nav .brand-logo {
   padding-bottom: 5%;
 }
 
+.home-list {
+  /* box-sizing: border-box; */
+  padding: 8px;
+  background-color: rgb(167, 228, 27);
+  margin-top: 4rem;
+  /* position: relative; */
+  position: fixed;
+  /* z-index: 2; */
+}
+
 .signup-nav {
   padding: 8px;
   margin-right: 8px;
