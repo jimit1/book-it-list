@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const password = require("./config/pw");
 require("dotenv").config();
 
 let connection;
@@ -10,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "Popover2020!",
+    password: password,
     database: "todo_db",
   });
 }
