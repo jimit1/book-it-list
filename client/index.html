@@ -48,64 +48,84 @@
           <div class="background">
             <img class="img-responsive" src="/img/bgr-everest2.jpg" />
           </div>
-          <!-- <a href="#user"><img class="circle" src="images/yuna.jpg" /></a> -->
+          <!-- <a href="#user"><img id="navatar" class="circle" src="#" /></a> -->
 
-          <a href="#name"><span class="white-text name size-4">John Doe</span></a>
-          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          <span id="userName" class="white-text name size-4"
+            >Name Placeholder</span
+          >
+          <span id="userEmail" class="white-text email">Email Placeholder</span>
         </div>
       </li>
 
-      
       <li>
-        <div class="collapsible-header"><a href="#!"><i class="material-icons">cloud</i>LOG IN!</a></div><form id="loginForm"></form>
-          <div class="collapsible-body">
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="loginEmailInput" />
-                <label for="email">Enter your email</label>
-              </div>
+        <div class="collapsible-header">
+          <a><i class="material-icons">cloud</i>LOG IN!</a>
+        </div>
+
+        <div class="collapsible-body">
+          <!-- log in email input -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="loginEmailInput" />
+              <label>Enter your email</label>
             </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="password" id="loginPwInput" />
-                <label for="password">Enter your password</label>
-                <button type="submit" class="col s12 btn btn-large waves-effect indigo">Click to Log In!</button>
-              </div>
-              </div>
+          </div>
+
+          <!-- log in password input -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="loginPwInput" />
+              <label>Enter your password</label>
+              <button
+                id="loginSubmit"
+                type="submit"
+                class="col s12 btn btn-large waves-effect indigo"
+              >
+                Click to Log In!
+              </button>
+            </div>
+          </div>
+        </div>
       </li>
-        </form>
 
-
-      <form id="signupForm"></form>
       <li>
-        <div class="collapsible-header"><a href="#!"><i class="material-icons">cloud</i>SIGN UP!</a></div>
-          <div class="collapsible-body">
-            <div class="row">
-              <div class="input-field col s12">
-                <input type="text" id="emailInput"/>
-                <label for="email" >Enter your email</label>
-              </div>
+        <div class="collapsible-header">
+          <a><i class="material-icons">cloud</i>SIGN UP!</a>
+        </div>
+        <div class="collapsible-body">
+          <!-- email for sign up -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="emailInput" />
+              <label>Enter your email</label>
             </div>
+          </div>
 
-        <!-- pw for sign up -->
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="password" id="pwInput" />
-            <label for="password">Enter your password</label>
+          <!-- pw for sign up -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" id="pwInput" />
+              <label>Enter your password</label>
+            </div>
           </div>
+
+          <!-- username for sign up -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" id="unInput" />
+              <label>Enter a Username</label>
+              <button
+                id="signupSubmit"
+                type="submit"
+                class="col s12 btn btn-large waves-effect indigo"
+              >
+                Click to Sign Up
+              </button>
+            </div>
           </div>
-        <!-- un for sign up -->
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="password" id="unInput" />
-            <label for="password">Enter a Username</label>
-            <button type="submit" class="col s12 btn btn-large waves-effect indigo">Click to Sign Up</button>
-        </form>
-        </li>
-        
+        </div>
+      </li>
     </ul>
-
-
 
     <div class="row">
       <div class="container">
@@ -131,7 +151,6 @@
               Your wildest dreams, all in one place
             </h5>
           </div>
-
         </div>
       </div>
       <div class="parallax">
@@ -241,9 +260,8 @@
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./assets/login.js"></script>
-    <script src = "./assets/signup.js"></script>
+    <script src="./assets/signup.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
- 
   </body>
 </html>
