@@ -1,19 +1,15 @@
 $(document).ready(function () {
-  const signupForm = $("#signupForm");
   const emailInput = $("#emailInput");
   const pwInput = $("#pwInput");
   const unInput = $("#unInput");
 
-  signupForm.on("submit", function (e) {
-    e.preventDefault();
-
+  $("#signupSubmit").on("click", () => {
+    console.log("clicked");
     const User = {
       email: emailInput.val().trim(),
       password: pwInput.val().trim(),
       userName: unInput.val().trim(),
     };
-
-    console.log(User);
 
     $.ajax({
       type: "POST",
