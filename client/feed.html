@@ -34,7 +34,7 @@
           id="logo-container"
           href="index.html"
           class="brand-logo left retro-shadow"
-          >Book-it!</a
+          >BOOK IT!</a
         >
       </div>
     </nav>
@@ -43,27 +43,55 @@
 
 
 
-    <ul id="slide-out" class="sidenav">
+    <ul id="slide-out" class="sidenav collapsible popout">
       <li>
         <div class="user-view">
           <div class="background">
-            <img class="img-responsive" src="imgparis.jpeg/office.jpg" />
+            <img class="img-responsive" src="/img/bgr-everest2.jpg" />
           </div>
-          <a href="#user"><img class="circle" src="images/yuna.jpg" /></a>
+          <!-- <a href="#user"><img id="navatar" class="circle" src="#" /></a> -->
 
-          <a href="#name"><span class="white-text name">John Doe</span></a>
-          <a href="#email"
-            ><span class="white-text email">jdandturk@gmail.com</span></a
+          <span id="userName" class="white-text name size-4"
+            >Name Placeholder</span
           >
+          <span id="userEmail" class="white-text email">Email Placeholder</span>
         </div>
       </li>
+
       <li>
-        <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
+        <div class="collapsible-header">
+          <a href="https://localhost:3000/members"><i class="material-icons">cloud</i>MEMBERS</a>
+        </div>
       </li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+
+      <li>
+        <div class="collapsible-header">
+          <a href="https://localhost:3000/settings"><i class="material-icons">cloud</i>SETTINGS</a>
+        </div>
+      </li>
+
+      <li>
+        <div class="collapsible-header">
+          <a href="/"><i class="material-icons">cloud</i>LOG OUT</a>
+        </div>
+      </li>
+
+<div></div>
+<div></div>
+<div></div>
+
+
+      <li>
+        <div class="collapsible-header card-panel light-blue darken-4">
+          <a href="http://localhost:3000/newpost" style="color: white;"><i class="material-icons white-text">cloud</i>CREATE POST</a>
+            </span>
+        </div>
+      </li>
+
+
+
+
+
     </ul>
 
     <div class="row">
@@ -187,6 +215,16 @@
         </div>
       </div>
     </div>
+
+
+      <footer class="page-footer teal">
+        <div class="footer-copyright">
+          <div class="container">
+            Made by
+          <a class="brown-text text-lighten-3" href="#">UCB Coding BootCamp</a>
+          </div>
+        </div>
+      </footer>
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
