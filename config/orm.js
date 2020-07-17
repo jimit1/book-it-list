@@ -26,6 +26,18 @@ const userPost = (userIdInput) => {
   });
 };
 
+const userOnePost = (postId) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT * FROM posts WHERE ?",
+      [{ id: postId }],
+      (err, data) => {
+        err ? reject(err) : resolve(data);
+      }
+    );
+  });
+};
+
 const addPost = (obj) => {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -77,4 +89,11 @@ const editPost = (obj) => {
   });
 };
 
-module.exports = { seeAllPosts, userPost, addPost, deletePost, editPost };
+module.exports = {
+  seeAllPosts,
+  userPost,
+  addPost,
+  deletePost,
+  editPost,
+  userOnePost,
+};
