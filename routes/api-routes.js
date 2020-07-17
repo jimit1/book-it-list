@@ -38,6 +38,16 @@ const {
   editPost,
 } = require("../config/orm");
 
+router
+  .get("/api/omdb", (req, res) => {
+    axios.get(
+      `https://www.omdbapi.com/?t=${res.body.t}&apikey=process.env.OMDB_KEY`
+    );
+  })
+  .then((response) => {
+    res.json(response);
+  });
+
 // see all todos--working, showing todos on web
 router.get("/api/all", (req, res) => {
   seeAllPosts()
@@ -47,6 +57,12 @@ router.get("/api/all", (req, res) => {
 
 // search single todo by ID, working on web.
 router.get("/api/find/", (req, res) => {
+  userPost(parseInt(req.body.userId))
+    .then((userPosts) => res.json(userPosts))
+    .catch((err) => res.json(err));
+});
+
+router.get("/api/findpost/", (req, res) => {
   userPost(parseInt(req.body.userId))
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
