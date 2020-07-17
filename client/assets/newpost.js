@@ -45,6 +45,11 @@ $(document).ready(function () {
       $("#imgURL").val(res[0].imageURL);
       $("#imptURL").val(res[0].imptURL);
       $("#form-img").attr("src", res[0].imageURL);
+      $("select").formSelect();
+      $("#category").on("load", () => {});
+      if (res[0].category == 3) {
+        $("#searchBtn").show();
+      }
     });
 
     // otherwise, disable the delete button
