@@ -5,7 +5,9 @@ const db = require("../models");
 const axios = require("axios");
 require("dotenv").config();
 
+
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
+  userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
 
@@ -61,7 +63,7 @@ router.get("/api/all", (req, res) => {
 
 // search single todo by user ID, working on web.
 router.get("/api/find/", (req, res) => {
-  userPost(parseInt(req.body.userId))
+  userPost(userId)
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
 });
