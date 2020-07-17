@@ -2,8 +2,12 @@ const express = require("express");
 const router = express.Router();
 const passport = require("../config/passport.js");
 const db = require("../models");
+const axios = require("axios");
+require("dotenv").config();
+
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
+  userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
 
@@ -33,10 +37,22 @@ router.get("/api/user_data", (req, res) => {
 const {
   seeAllPosts,
   userPost,
+  userOnePost,
   addPost,
   deletePost,
   editPost,
 } = require("../config/orm");
+
+router.get("/api/omdb/:title", (req, res) => {
+  axios
+    .get(
+      `https://www.omdbapi.com/?t=${req.params.title}&apikey=${process.env.OMDB_API}`
+    )
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => res.json(err));
+});
 
 // see all todos--working, showing todos on web
 router.get("/api/all", (req, res) => {
@@ -45,9 +61,16 @@ router.get("/api/all", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// search single todo by ID, working on web.
+// search single todo by user ID, working on web.
 router.get("/api/find/", (req, res) => {
-  userPost(parseInt(req.body.userId))
+  userPost(userId)
+    .then((userPosts) => res.json(userPosts))
+    .catch((err) => res.json(err));
+});
+
+// search a single todo by its ID, working on web.
+router.get("/api/findpost/:postId", (req, res) => {
+  userOnePost(parseInt(req.params.postId))
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
 });

@@ -37,12 +37,12 @@ router.get("/feed", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/feed.html"));
 });
 
-router.get("/newpost", (req, res) => {
+router.get("/newpost", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/newpost.html"));
 });
 
-// router.get("/delete", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/delete.html"));
-// });
+router.get("/settings", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/settings.html"));
+});
 
 module.exports = router;
