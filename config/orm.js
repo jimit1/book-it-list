@@ -8,17 +8,34 @@ connection.connect((err) => {
 
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
-    connection.query("SELECT * FROM posts", (err, data) => {
-      err ? reject(err) : resolve(data);
-    });
+    connection.query(
+      `SELECT * FROM posts 
+    LEFT JOIN users ON
+    users.id = posts.userId`,
+      (err, data) => {
+        err ? reject(err) : resolve(data);
+      }
+    );
   });
 };
 
-const showPost = (userIdInput) => {
+const userPost = (userIdInput) => {
   return new Promise((resolve, reject) => {
     connection.query(
       "SELECT * FROM posts WHERE ?",
       [{ userId: userIdInput }],
+      (err, data) => {
+        err ? reject(err) : resolve(data);
+      }
+    );
+  });
+};
+
+const userOnePost = (postId) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT * FROM posts WHERE ?",
+      [{ id: postId }],
       (err, data) => {
         err ? reject(err) : resolve(data);
       }
@@ -77,4 +94,11 @@ const editPost = (obj) => {
   });
 };
 
-module.exports = { seeAllPosts, showPost, addPost, deletePost, editPost };
+module.exports = {
+  seeAllPosts,
+  userPost,
+  addPost,
+  deletePost,
+  editPost,
+  userOnePost,
+};

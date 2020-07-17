@@ -32,25 +32,40 @@ router.get("/api/user_data", (req, res) => {
 
 const {
   seeAllPosts,
-  showPost,
+  userPost,
   addPost,
   deletePost,
   editPost,
 } = require("../config/orm");
 
+router
+  .get("/api/omdb", (req, res) => {
+    axios.get(
+      `https://www.omdbapi.com/?t=${res.body.t}&apikey=process.env.OMDB_KEY`
+    );
+  })
+  .then((response) => {
+    res.json(response);
+  });
+
 // see all todos--working, showing todos on web
-router.post("/api/all", (req, res) => {
+router.get("/api/all", (req, res) => {
   seeAllPosts()
     .then((allPosts) => res.json(allPosts))
     .catch((err) => res.json(err));
 });
 
 // search single todo by ID, working on web.
-router.post("/api/find/", (req, res) => {
-  showPost ===
-    parseInt(req.body.userId)
-      .then((showPosts) => res.json(showPosts))
-      .catch((err) => res.json(err));
+router.get("/api/find/", (req, res) => {
+  userPost(parseInt(req.body.userId))
+    .then((userPosts) => res.json(userPosts))
+    .catch((err) => res.json(err));
+});
+
+router.get("/api/findpost/", (req, res) => {
+  userPost(parseInt(req.body.userId))
+    .then((userPosts) => res.json(userPosts))
+    .catch((err) => res.json(err));
 });
 
 // create a new todo, shows all todos working on web.
@@ -69,14 +84,14 @@ router.post("/api/add", (req, res) => {
 });
 
 // delete a todo; works on postman, not on web.
-router.post("/api/delete", (req, res) => {
+router.delete("/api/delete", (req, res) => {
   deletePost(parseInt(req.body.postId))
     .then((delRes) => res.json(delRes))
     .catch((err) => res.json(err));
 });
 
 // edit a todo; works on postman, not on web.
-router.post("/api/update", (req, res) => {
+router.patch("/api/update", (req, res) => {
   let updatedPost = {
     postId: req.body.postId,
     userId: req.body.userId,

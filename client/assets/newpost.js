@@ -19,31 +19,36 @@ $(document).ready(function () {
   }).then((res) => {
     console.log(res.id);
     if (res.id === undefined) {
-      window.location.href = "/";
+      window.location.replace("/");
     } else {
       userId = res.id;
-      console.log("after GET request: ", userId);
     }
   });
 
-  console.log("below ajax request: ", userId);
-  // conditional: if id != null, then..
-  // use an api route to get the post using the id variable above
-  // set each element's .val() using res from the ajax request
+  // if this is an update..
+  if (postId != null) {
+    // .. enable the delete button
+    $("#delete").attr("class", "waves-effect waves-light btn");
+    console.log(postIdNum);
 
-  // if (id != null) {
-  //   console.log(postIdNum);
-  //   $.ajax({
-  //     type: "GET",
-  //     url: `TBD/${idNum}`, // TDB
-  //   }).then((res) => {
-  //     $("#category").val(res.category);
-  //     $("#title").val(res.title);
-  //     $("#details").val(res.details);
-  //     $("#imgURL").val(res.imgURL);
-  //     $("#imptURL").val(res.imptURL);
-  //   });
-  // }
+    // // .. and get the post using it's ID
+    // $.ajax({
+    //   type: "GET",
+    //   url: `TBD/${idNum}`, // TDB
+    // }).then((res) => {
+    //
+    //   // Set the form up with values from the request
+    //   $("#category").val(res.category);
+    //   $("#title").val(res.title);
+    //   $("#details").val(res.details);
+    //   $("#imgURL").val(res.imgURL);
+    //   $("#imptURL").val(res.imptURL);
+    // });
+
+    // otherwise, disable the delete button
+  } else {
+    $("#delete").attr("class", "waves-effect waves-light btn disabled");
+  }
 
   let post = {
     userId: "",
@@ -63,19 +68,22 @@ $(document).ready(function () {
     }
   });
 
+  $("#previewBtn").on("click", () => {
+    $("#form-img").attr("src", $("#imgURL").val());
+  });
+
   $("#searchBtn").on("click", () => {
     if ($("#title").val() === "") {
       instance.open();
     } else {
+      // if the category is 'movies'
+
       if ($("#category").val() == 3) {
-        // search omdb for the title entered
-        console.log($("#title").val());
         $.ajax({
           type: "GET",
-          // need to figure out how to hide the key using .env fe8b2a76
+          // Key will eventually be hidden using axios and api-routes
           url: `http://www.omdbapi.com/?apikey=fe8b2a76&t=${$("#title").val()}`,
         }).then((res) => {
-          console.log(res);
           $("#details").val(`Plot: ${res.Plot}\n
 IMDB Rating: ${res.imdbRating}/10\n
 Rotten Tomatoes: ${res.Ratings[1].Value}\n
@@ -88,7 +96,9 @@ Director(s): ${res.Director}`);
     }
   });
 
+  // When the submit button is clicked..
   $("#btnSubmit").on("click", () => {
+    // set the values for the post object
     post.userId = userId;
     post.category = $("#category").val();
     post.title = $("#title").val();
@@ -96,6 +106,7 @@ Director(s): ${res.Director}`);
     post.imageURL = $("#imgURL").val();
     post.imptURL = $("#imptURL").val();
 
+    // If any required fields are blank..
     if (
       $("#category").val() === null ||
       $("#title").val() === "" ||
@@ -104,26 +115,60 @@ Director(s): ${res.Director}`);
       post.title.length > 100 ||
       post.details.length > 500
     ) {
+      // show the modal
       instance.open();
+      // otherwise..
     } else {
-      // add a conditional to check if the id in the url is null
-      // if it is, submit a new post,
-      // if it isn't, postID = id submit edit post
+      // if there isn't a post ID..
+      if (postId === null) {
+        console.log("no id");
+        console.log(post);
 
-      console.log(post);
-      $.ajax({
-        type: "POST",
-        url: "/api/add",
-        data: post,
-      }).then((res) => {
-        console.log(res);
-      });
+        // ..submit a new post
 
-      // window.location.href = "/feed";
+        $.ajax({
+          type: "POST",
+          url: "/api/add",
+          data: post,
+        }).then((res) => {
+          M.toast({ html: "Successfully submitted new post" });
+          setTimeout(() => window.location.replace("/feed"), 1500);
+        });
+
+        // ..otherwise..
+      } else {
+        // ..get the postId and add it to the post object
+        post.postId = postIdNum;
+        console.log(post);
+
+        // ..then submit an update
+
+        // $.ajax({
+        //   type: "POST",
+        //   url: "/api/update",
+        //   data: post,
+        // }).then((res) => {
+        //   M.toast({ html: "Successfully updated post" });
+        //   setTimeout(() => window.location.replace("/feed"), 1500);
+        // });
+      }
     }
   });
 
-  $("#cancel").on("click", () => {
-    window.location.href = "/feed";
+  // a simple redirect, does nothing else
+  $("#cancel").on("click", () => window.location.replace("/feed"));
+
+  // this works so long as the URL is:
+  // 'localhost:3000/newpost?id=' and a valid post ID (valid in your db)
+  $("#delete").on("click", () => {
+    post.postId = postIdNum;
+    $.ajax({
+      type: "POST",
+      url: "/api/delete",
+      data: post,
+    }).then((res) => {
+      M.toast({ html: "Successfully deleted post" });
+      setTimeout(() => window.location.replace("/feed"), 1500);
+    });
   });
 });
