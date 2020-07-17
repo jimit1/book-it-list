@@ -14,7 +14,7 @@ const seeAllPosts = () => {
   });
 };
 
-const showPost = (userIdInput) => {
+const userPost = (userIdInput) => {
   return new Promise((resolve, reject) => {
     connection.query(
       "SELECT * FROM posts WHERE ?",
@@ -77,4 +77,4 @@ const editPost = (obj) => {
   });
 };
 
-module.exports = { seeAllPosts, showPost, addPost, deletePost, editPost };
+module.exports = { seeAllPosts, userPost, addPost, deletePost, editPost };
