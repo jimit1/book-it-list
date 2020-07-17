@@ -8,9 +8,14 @@ connection.connect((err) => {
 
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
-    connection.query("SELECT * FROM posts", (err, data) => {
-      err ? reject(err) : resolve(data);
-    });
+    connection.query(
+      `SELECT * FROM posts 
+    LEFT JOIN users ON
+    users.id = posts.userId`,
+      (err, data) => {
+        err ? reject(err) : resolve(data);
+      }
+    );
   });
 };
 
