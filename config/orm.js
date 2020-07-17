@@ -22,7 +22,9 @@ const seeAllPosts = () => {
 const userPost = (userIdInput) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT * FROM posts WHERE ?",
+      `SELECT * FROM posts 
+      LEFT JOIN users ON
+      users.id = posts.userId`,
       [{ userId: userIdInput }],
       (err, data) => {
         err ? reject(err) : resolve(data);
