@@ -4,6 +4,7 @@ $(document).ready(function () {
   $("input#input_text, textarea#details").characterCounter();
   $(".modal").modal();
   $("#searchBtn").hide();
+  $("#title").focus();
 
   const instance = M.Modal.getInstance(modal1);
 
