@@ -32,19 +32,20 @@ $(document).ready(function () {
     $("#delete").attr("class", "waves-effect waves-light btn");
     console.log(postIdNum);
 
-    // // .. and get the post using it's ID
-    // $.ajax({
-    //   type: "GET",
-    //   url: `TBD/${idNum}`, // TDB
-    // }).then((res) => {
-    //
-    //   // Set the form up with values from the request
-    //   $("#category").val(res.category);
-    //   $("#title").val(res.title);
-    //   $("#details").val(res.details);
-    //   $("#imgURL").val(res.imgURL);
-    //   $("#imptURL").val(res.imptURL);
-    // });
+    // .. and get the post using it's ID
+    $.ajax({
+      type: "GET",
+      url: `/api/findpost/${postIdNum}`,
+    }).then((res) => {
+      console.log("from findpost request", res);
+      // Set the form up with values from the request
+      $("#category").val(res[0].category);
+      $("#title").val(res[0].title);
+      $("#details").val(res[0].details);
+      $("#imgURL").val(res[0].imageURL);
+      $("#imptURL").val(res[0].imptURL);
+      $("#form-img").attr("src", res[0].imageURL);
+    });
 
     // otherwise, disable the delete button
   } else {
@@ -83,15 +84,17 @@ $(document).ready(function () {
         $.ajax({
           type: "GET",
           // Key will eventually be hidden using axios and api-routes
-          url: `http://www.omdbapi.com/?apikey=fe8b2a76&t=${$("#title").val()}`,
+          url: `/api/omdb/${$("#title").val()}`,
         }).then((res) => {
+          console.log(res);
           $("#details").val(`Plot: ${res.Plot}\n
-IMDB Rating: ${res.imdbRating}/10\n
-Rotten Tomatoes: ${res.Ratings[1].Value}\n
-Released: ${res.Year}\n
-Director(s): ${res.Director}`);
+          IMDB Rating: ${res.imdbRating}/10\n
+          Rotten Tomatoes: ${res.Ratings[1].Value}\n
+          Released: ${res.Year}\n
+          Director(s): ${res.Director}`);
 
           $("#imgURL").val(res.Poster);
+          $("#form-img").attr("src", res.Poster);
         });
       }
     }
@@ -144,14 +147,14 @@ Director(s): ${res.Director}`);
 
         // ..then submit an update
 
-        // $.ajax({
-        //   type: "POST",
-        //   url: "/api/update",
-        //   data: post,
-        // }).then((res) => {
-        //   M.toast({ html: "Successfully updated post" });
-        //   setTimeout(() => window.location.replace("/feed"), 1500);
-        // });
+        $.ajax({
+          type: "PATCH",
+          url: "/api/update",
+          data: post,
+        }).then((res) => {
+          M.toast({ html: "Successfully updated post" });
+          setTimeout(() => window.location.replace("/feed"), 1500);
+        });
       }
     }
   });
@@ -164,7 +167,7 @@ Director(s): ${res.Director}`);
   $("#delete").on("click", () => {
     post.postId = postIdNum;
     $.ajax({
-      type: "POST",
+      type: "DELETE",
       url: "/api/delete",
       data: post,
     }).then((res) => {
