@@ -47,9 +47,10 @@ router.post("/api/all", (req, res) => {
 
 // search single todo by ID, working on web.
 router.post("/api/find/", (req, res) => {
-  showPost(parseInt(req.body.userId))
-    .then((showPosts) => res.json(showPosts))
-    .catch((err) => res.json(err));
+  showPost ===
+    parseInt(req.body.userId)
+      .then((showPosts) => res.json(showPosts))
+      .catch((err) => res.json(err));
 });
 
 // create a new todo, shows all todos working on web.
