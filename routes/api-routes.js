@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 const passport = require("../config/passport.js");
 const db = require("../models");
+let userId = 0;
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
+  userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
 
@@ -38,15 +40,13 @@ const {
   editPost,
 } = require("../config/orm");
 
-router
-  .get("/api/omdb", (req, res) => {
-    axios.get(
-      `https://www.omdbapi.com/?t=${res.body.t}&apikey=process.env.OMDB_KEY`
-    );
-  })
-  .then((response) => {
-    res.json(response);
-  });
+router.get("/api/omdb", (req, res) => {
+  axios
+    .get(`https://www.omdbapi.com/?t=${res.body.t}&apikey=process.env.OMDB_KEY`)
+    .then((response) => {
+      res.json(response);
+    });
+});
 
 // see all todos--working, showing todos on web
 router.get("/api/all", (req, res) => {
@@ -57,7 +57,7 @@ router.get("/api/all", (req, res) => {
 
 // search single todo by ID, working on web.
 router.get("/api/find/", (req, res) => {
-  userPost(parseInt(req.body.userId))
+  userPost(userId)
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
 });
