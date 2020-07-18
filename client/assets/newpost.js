@@ -14,6 +14,7 @@ $(document).ready(function () {
   const postIdNum = parseInt(postId);
   let userId;
 
+<<<<<<< HEAD
   // connection = require("./connection");
 
   // connection.query(
@@ -31,6 +32,12 @@ $(document).ready(function () {
   //     if (err) throw err;
   //   }
   // );
+=======
+  $.ajax({
+    type: "GET",
+    url: "/api/user_data",
+  }).then((res) => (userId = res.id));
+>>>>>>> 771231122bca4db2055f6726165025ee514f66a2
 
   // if this is an update..
   if (postId != null) {

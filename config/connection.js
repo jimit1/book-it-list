@@ -9,7 +9,11 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
+<<<<<<< HEAD
     password: "1F@ptoyournan",
+=======
+    password: "password",
+>>>>>>> 771231122bca4db2055f6726165025ee514f66a2
     database: "todo_db",
   });
 }

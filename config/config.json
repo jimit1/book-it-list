@@ -1,8 +1,12 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "1F@ptoyournan",
 
+=======
+    "password": "password",
+>>>>>>> 771231122bca4db2055f6726165025ee514f66a2
     "database": "todo_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
