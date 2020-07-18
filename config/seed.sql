@@ -17,3 +17,12 @@ CREATE TABLE IF NOT EXISTS posts (
 
 select * from users;
 select * from posts;
+
+SELECT * FROM posts 
+LEFT JOIN users ON
+users.id = posts.userId;
+
+SELECT * FROM posts 
+LEFT JOIN users ON
+users.id = posts.userId
+WHERE users.id = 1;

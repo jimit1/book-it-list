@@ -14,6 +14,12 @@ $(document).ready(function () {
   const postIdNum = parseInt(postId);
   let userId;
 
+<<<<<<< HEAD
+  $.ajax({
+    type: "GET",
+    url: "/api/user_data",
+  }).then((res) => (userId = res.id));
+=======
   // connection = require("./connection");
 
   // connection.query(
@@ -31,6 +37,7 @@ $(document).ready(function () {
   //     if (err) throw err;
   //   }
   // );
+>>>>>>> 8aae52868573cd1acc2061d989c910d19fcf6311
 
   // if this is an update..
   if (postId != null) {
@@ -51,11 +58,14 @@ $(document).ready(function () {
       $("#imgURL").val(res[0].imageURL);
       $("#imptURL").val(res[0].imptURL);
       $("#form-img").attr("src", res[0].imageURL);
+<<<<<<< HEAD
+=======
       $("select").formSelect();
       $("#category").on("load", () => {});
       if (res[0].category == 3) {
         $("#searchBtn").show();
       }
+>>>>>>> 8aae52868573cd1acc2061d989c910d19fcf6311
     });
 
     // otherwise, disable the delete button
