@@ -40,7 +40,7 @@ const userPost = (userIdInput) => {
     connection.query(
       `SELECT * FROM posts 
       LEFT JOIN users ON
-      users.id = posts.userId`,
+      users.id = posts.userId WHERE ?`,
       [{ userId: userIdInput }],
       (err, data) => {
         err ? reject(err) : resolve(data);
