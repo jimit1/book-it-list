@@ -6,6 +6,7 @@ const axios = require("axios");
 require("dotenv").config();
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
+  console.log("howdy!");
   userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });

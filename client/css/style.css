@@ -112,6 +112,11 @@ footer.page-footer {
   max-height: 400px;
 }
 
+#avatar-img {
+  max-width: 90%;
+  max-height: 400px;
+}
+
 #font-TNR {
   font-family: "Times New Roman", Times, serif !important;
 }
