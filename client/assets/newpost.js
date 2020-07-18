@@ -41,7 +41,7 @@ $(document).ready(function () {
       $("select").formSelect();
       M.textareaAutoResize($("#details"));
       $("#category").on("load", () => {});
-      if (res[0].category == 3) {
+      if (res[0].category == "movies") {
         $("#searchBtn").show();
       }
     });
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
   // Materialize returns a STRING number for .val()
   $("#category").on("change", () => {
-    if ($("#category").val() == 3) {
+    if ($("#category").val() == "movies") {
       $("#searchBtn").show();
     } else {
       $("#searchBtn").hide();
@@ -79,7 +79,7 @@ $(document).ready(function () {
     } else {
       // if the category is 'movies'
 
-      if ($("#category").val() == 3) {
+      if ($("#category").val() == "movies") {
         $.ajax({
           type: "GET",
           url: `/api/omdb/${$("#title").val()}`,
