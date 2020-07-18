@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+
     "password": "1F@ptoyournan",
 
     "database": "todo_db",
