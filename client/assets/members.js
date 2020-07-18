@@ -26,7 +26,7 @@ $(document).ready(function () {
     return new Promise((resolve, reject) => {
       $.ajax({
         type: "GET",
-        url: `/api/find?userId=${userID}`,
+        url: `/api/find/${userID}`,
       }).then((res) => {
         resolve(res);
       });
