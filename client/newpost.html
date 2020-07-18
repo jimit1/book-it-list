@@ -31,129 +31,62 @@
     <title>Create Post</title>
   </head>
   <body>
-    <nav class="white my-nav" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="/feed" class="brand-logo left retro-shadow"
-          >BOOK IT!</a
-        >
-      </div>
-    </nav>
-
-    <ul id="slide-out" class="sidenav collapsible popout">
-      <li>
-        <div class="user-view">
-          <div class="background">
-            <img class="img-responsive" src="/img/bgr-everest2.jpg" />
-          </div>
-          <!-- <a href="#user"><img id="navatar" class="circle" src="#" /></a> -->
-
-          <span id="userName" class="white-text name size-4"
-            >Name Placeholder</span
-          >
-          <span id="userEmail" class="white-text email">Email Placeholder</span>
-        </div>
-      </li>
-
-      <li>
-        <div class="collapsible-header">
-          <a href="http://localhost:3000/settings"
-            ><i class="material-icons">select_all</i>ALL POSTS</a
-          >
-        </div>
-      </li>
-
-      <li>
-        <div class="collapsible-header">
-          <a href="http://localhost:3000/members"
-            ><i class="material-icons">home</i>MEMBER</a
-          >
-        </div>
-      </li>
-
-      <li>
-        <div class="collapsible-header">
-          <a href="http://localhost:3000/settings"
-            ><i class="material-icons">settings</i>SETTINGS</a
-          >
-        </div>
-      </li>
-
-      <li>
-        <div class="collapsible-header">
-          <a href="/logout"><i class="material-icons">cloud</i>LOG OUT</a>
-        </div>
-      </li>
-    </ul>
+    <div class="navbargoeshere"></div>
+    <!-- form -->
 
     <div class="row">
-      <div class="container">
-        <div class="signup-nav">
-          <a href="#" data-target="slide-out" class="sidenav-trigger"
-            ><i class="material-icons small">account_circle</i></a
-          >
-        </div>
+      <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
+        <h5 style="margin-top: 100px;">Category</h5>
+        <select id="category">
+          <option value="" disabled selected>Choose your option</option>
+          <option value="places">Places to go</option>
+          <option value="food">Food to eat</option>
+          <option value="movies">Movies to watch</option>
+          <option value="things">Things to do</option>
+        </select>
       </div>
     </div>
 
     <div class="row">
-      <div class="container"></div>
+      <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
+        <h5>Title</h5>
+        <input
+          placeholder="Enter title..."
+          id="title"
+          type="text"
+          data-length="100"
+          class="validate"
+          required=""
+        />
+      </div>
+    </div>
+
+    <button class="waves-effect waves-light btn" id="searchBtn">
+      Search
+    </button>
+
+    <div class="row">
+      <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
+        <h5>Details</h5>
+        <textarea
+          id="details"
+          class="materialize-textarea validate"
+          data-length="500"
+          required=""
+        ></textarea>
+      </div>
     </div>
 
     <div class="center-align" style="margin-top: 50px;">
       <div class="row">
-        <div class="col s10 m6 l4 offset-s1 offset-m3 offset-l4"></div>
-      </div>
-
-      <!-- form -->
-
-      <div class="row">
-        <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
-          <h5>Category</h5>
-          <select id="category">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="places">Places to go</option>
-            <option value="food">Food to eat</option>
-            <option value="movies">Movies to watch</option>
-            <option value="things">Things to do</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
-          <h5>Title</h5>
-          <input
-            placeholder="Enter title..."
-            id="title"
-            type="text"
-            data-length="100"
-            class="validate"
-            required=""
+        <div class="col s10 m6 l4 offset-s1 offset-m3 offset-l4">
+          <img
+            id="form-img"
+            src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg"
+            alt="No image"
           />
         </div>
       </div>
-
-      <button class="waves-effect waves-light btn" id="searchBtn">
-        Search
-      </button>
-
-      <div class="row">
-        <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
-          <h5>Details</h5>
-          <textarea
-            id="details"
-            class="materialize-textarea validate"
-            data-length="500"
-            required=""
-          ></textarea>
-        </div>
-      </div>
-
-      <img
-        id="form-img"
-        src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg"
-        alt="No image"
-      />
 
       <div class="row">
         <div class="input-field col s10 m6 l4 offset-s1 offset-m3 offset-l4">
@@ -220,14 +153,7 @@
       </div>
     </div>
 
-    <footer class="page-footer teal">
-      <div class="footer-copyright">
-        <div class="container">
-          Made by
-          <a class="brown-text text-lighten-3" href="#">UCB Coding BootCamp</a>
-        </div>
-      </div>
-    </footer>
+    <div class="footergoeshere"></div>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -238,5 +164,6 @@
     <script src="./assets/newpost.js"></script>
     <script src="js/init.js"></script>
     <script src="./assets/feed.js"></script>
+    <script src="./assets/nav.js"></script>
   </body>
 </html>
