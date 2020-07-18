@@ -45,4 +45,8 @@ router.get("/settings", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/settings.html"));
 });
 
+router.get("/members", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/members.html"));
+});
+
 module.exports = router;
