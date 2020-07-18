@@ -36,6 +36,9 @@ router.get("/signup", (req, res) => {
 router.get("/feed", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/feed.html"));
 });
+router.get("/members", isAuthenticated, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/members.html"));
+});
 
 router.get("/newpost", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/newpost.html"));
