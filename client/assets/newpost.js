@@ -39,6 +39,7 @@ $(document).ready(function () {
       $("#imptURL").val(res[0].imptURL);
       $("#form-img").attr("src", res[0].imageURL);
       $("select").formSelect();
+      M.textareaAutoResize($("#details"));
       $("#category").on("load", () => {});
       if (res[0].category == 3) {
         $("#searchBtn").show();
@@ -81,17 +82,14 @@ $(document).ready(function () {
       if ($("#category").val() == 3) {
         $.ajax({
           type: "GET",
-          // Key will eventually be hidden using axios and api-routes
           url: `/api/omdb/${$("#title").val()}`,
         }).then((res) => {
-          console.log(res);
-          $("#details").val(`Plot: ${res.Plot}\n
-          IMDB Rating: ${res.imdbRating}/10\n
-          Rotten Tomatoes: ${res.Ratings[1].Value}\n
-          Released: ${res.Year}\n
-          Director(s): ${res.Director}`);
+          $("#details").val(
+            `Plot: ${res.Plot}\nIMDB Rating: ${res.imdbRating}/10\nRotten Tomatoes: ${res.Ratings[1].Value}\nReleased: ${res.Year}\nDirector(s): ${res.Director}`
+          );
           $("#imgURL").val(res.Poster);
           $("#form-img").attr("src", res.Poster);
+          M.textareaAutoResize($("#details"));
         });
       }
     }
