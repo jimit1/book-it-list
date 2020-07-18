@@ -6,6 +6,22 @@ connection.connect((err) => {
   if (err) throw err;
 });
 
+connection.query(
+  `CREATE TABLE IF NOT EXISTS posts (
+  id INT NOT NULL AUTO_INCREMENT,
+  userId INT NOT NULL,
+  category VARCHAR(80) NOT NULL,
+  title VARCHAR(200) NOT NULL,
+  details VARCHAR(500) NOT NULL,
+  imageURL VARCHAR(200) NOT NULL,
+  imptURL VARCHAR(200),
+  PRIMARY KEY (id)
+)`,
+  (err) => {
+    if (err) throw err;
+  }
+);
+
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -80,7 +96,6 @@ const editPost = (obj) => {
       "UPDATE posts SET ? WHERE ?",
       [
         {
-          userId: obj.userId,
           category: obj.category,
           title: obj.title,
           details: obj.details,

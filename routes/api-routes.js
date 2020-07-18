@@ -5,7 +5,6 @@ const db = require("../models");
 const axios = require("axios");
 require("dotenv").config();
 
-
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
   userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
@@ -41,7 +40,7 @@ const {
   addPost,
   deletePost,
   editPost,
-} = require("../config/orm");
+} = require("../config/posts-orm");
 
 router.get("/api/omdb/:title", (req, res) => {
   axios
@@ -63,7 +62,7 @@ router.get("/api/all", (req, res) => {
 
 // search single todo by user ID, working on web.
 router.get("/api/find/", (req, res) => {
-  userPost(userId)
+  userPost(req.body.userId)
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
 });
@@ -101,7 +100,6 @@ router.delete("/api/delete", (req, res) => {
 router.patch("/api/update", (req, res) => {
   let updatedPost = {
     postId: req.body.postId,
-    userId: req.body.userId,
     category: req.body.category,
     title: req.body.title,
     details: req.body.details,
@@ -109,6 +107,44 @@ router.patch("/api/update", (req, res) => {
     imptURL: req.body.imptURL,
   };
   editPost(updatedPost)
+    .then((editRes) => res.json(editRes))
+    .catch((err) => res.json(err));
+});
+
+const {
+  addSettings,
+  updateSettings,
+  seeSettings,
+} = require("../config/settings-orm");
+
+router.post("/api/addSettings", (req, res) => {
+  let newSettings = {
+    userId: req.body.userId,
+    profileUrl: req.body.profileUrl,
+    mode: req.body.mode,
+    font: req.body.font,
+    view: req.body.view,
+  };
+  addSettings(newSettings)
+    .then((submitResult) => res.json(submitResult))
+    .catch((err) => res.json(err));
+});
+
+router.get("/api/allSettings", (req, res) => {
+  seeSettings(parseInt(req.body.userId))
+    .then((allPosts) => res.json(allPosts))
+    .catch((err) => res.json(err));
+});
+
+router.patch("/api/updateSettings", (req, res) => {
+  let updatedSettings = {
+    userId: req.body.userId,
+    profileUrl: req.body.profileUrl,
+    mode: req.body.mode,
+    font: req.body.font,
+    view: req.body.view,
+  };
+  updateSettings(updatedSettings)
     .then((editRes) => res.json(editRes))
     .catch((err) => res.json(err));
 });

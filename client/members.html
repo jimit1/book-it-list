@@ -26,53 +26,115 @@
       rel="stylesheet"
       media="screen,projection"
     />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+    rel="stylesheet"
+  />
   </head>
   <body>
     <nav class="white my-nav" role="navigation">
       <div class="nav-wrapper container">
-        <a
-          id="logo-container"
-          href="index.html"
-          class="brand-logo left retro-shadow"
-          >Book-it!</a
+        <a id="logo-container" href="#" class="brand-logo left retro-shadow"
+          >BOOK IT!</a
         >
       </div>
     </nav>
-
     <!-- side nav  -->
 
-    <ul id="slide-out" class="sidenav">
+    <ul id="slide-out" class="sidenav collapsible popout">
       <li>
         <div class="user-view">
           <div class="background">
-            <img class="img-responsive" src="imgparis.jpeg/office.jpg" />
+            <img class="img-responsive" src="/img/bgr-everest2.jpg" />
           </div>
-          <a href="#user"><img class="circle" src="images/yuna.jpg" /></a>
+          <!-- <a href="#user"><img id="navatar" class="circle" src="#" /></a> -->
 
-          <a href="#name"><span class="white-text name">John Doe</span></a>
-          <a href="#email"
-            ><span class="white-text email">jdandturk@gmail.com</span></a
-          >
-        </div>
-      </li>
-      <li>
-        <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
-      </li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-    </ul>
+    <span id="userName" class="white-text name size-4"
+    >Name Placeholder</span
+  >
+  <span id="userEmail" class="white-text email">Email Placeholder</span>
+</div>
+</li>
 
-    <div class="row">
-      <div class="container">
-        <div class="signup-nav">
-          <a href="#" data-target="slide-out" class="sidenav-trigger"
-            ><i class="material-icons small">account_circle</i></a
-          >
-        </div>
-      </div>
+<li>
+<div class="collapsible-header">
+  <a><i class="material-icons">cloud</i>LOG IN!</a>
+</div>
+
+<div class="collapsible-body">
+  <!-- log in email input -->
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" id="loginEmailInput" />
+      <label>Enter your email</label>
     </div>
+  </div>
+
+  <!-- log in password input -->
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="password" id="loginPwInput" />
+      <label>Enter your password</label>
+      <button
+        id="loginSubmit"
+        type="submit"
+        class="col s12 btn btn-large waves-effect indigo"
+      >
+        Click to Log In!
+      </button>
+    </div>
+  </div>
+</div>
+</li>
+
+<li>
+<div class="collapsible-header">
+  <a><i class="material-icons">cloud</i>SIGN UP!</a>
+</div>
+<div class="collapsible-body">
+  <!-- email for sign up -->
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" id="emailInput" />
+      <label>Enter your email</label>
+    </div>
+  </div>
+
+  <!-- pw for sign up -->
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="password" id="pwInput" />
+      <label>Enter your password</label>
+    </div>
+  </div>
+
+  <!-- username for sign up -->
+  <div class="row">
+    <div class="input-field col s12">
+      <input type="text" id="unInput" />
+      <label>Enter a Username</label>
+      <button
+        id="signupSubmit"
+        type="submit"
+        class="col s12 btn btn-large waves-effect indigo"
+      >
+        Click to Sign Up
+      </button>
+    </div>
+  </div>
+</div>
+</li>
+</ul>
+
+<div class="row">
+<div class="container">
+<div class="signup-nav">
+  <a href="#" data-target="slide-out" class="sidenav-trigger"
+    ><i class="material-icons small">account_circle</i></a
+  >
+</div>
+</div>
+</div>
 
     <!-- side nav ends -->
 
@@ -244,7 +306,14 @@
   </div>
   <!-- card feed end  -->
 </div>
-
+<footer class="page-footer teal">
+  <div class="footer-copyright">
+    <div class="container">
+      Made by
+    <a class="brown-text text-lighten-3" href="#">UCB Coding BootCamp</a>
+    </div>
+  </div>
+</footer>
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

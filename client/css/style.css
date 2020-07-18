@@ -5,6 +5,10 @@
  *
  * Made By MaterializeCSS.com
  */
+.body {
+  margin-top: 800px;
+}
+
 .brand-logo {
   /* color: #2c2c2c; */
   font-family: "Bungee", cursive;
