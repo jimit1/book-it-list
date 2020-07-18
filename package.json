@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/llee-125/bucketList/issues"
   },
-  "homepage": "https://github.com/llee-125/bucketList#readme"
+  "homepage": "https://github.com/llee-125/bucketList#readme",
+  "directories": {
+    "test": "test"
+  }
 }

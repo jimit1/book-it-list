@@ -14,6 +14,11 @@ $(document).ready(function () {
   const postIdNum = parseInt(postId);
   let userId;
 
+  $.ajax({
+    type: "GET",
+    url: "/api/user_data",
+  }).then((res) => (userId = res.id));
+
   // if this is an update..
   if (postId != null) {
     // .. enable the delete button
