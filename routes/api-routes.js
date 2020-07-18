@@ -30,7 +30,11 @@ router.get("/logout", (req, res) => {
 router.get("/api/user_data", (req, res) => {
   !req.user
     ? res.json({ message: "No user Present" })
-    : res.json({ email: req.user.email, id: req.user.id });
+    : res.json({
+        email: req.user.email,
+        id: req.user.id,
+        userName: req.user.userName,
+      });
 });
 
 const {
@@ -61,8 +65,8 @@ router.get("/api/all", (req, res) => {
 });
 
 // search single todo by user ID, working on web.
-router.get("/api/find/", (req, res) => {
-  userPost(req.body.userId)
+router.get("/api/find/:userId", (req, res) => {
+  userPost(parseInt(req.params.userId))
     .then((userPosts) => res.json(userPosts))
     .catch((err) => res.json(err));
 });
