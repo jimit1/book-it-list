@@ -1,19 +1,11 @@
-// $(document).ready(function () {
-//   let userIdentity;
-//   $.ajax({
-//     type: "GET",
-//     url: "/api/user_data",
-//   })
-//     .then((res) => {
-//       userIdentity = res.id;
-//     })
-//     .then(() => {
-//       console.log(userIdentity);
-//       $.ajax({
-//         type: "GET",
-//         url: `/api/allSettings`,
-//       }).then((res) => {
-//         console.log(res);
-//       });
-//     });
-// });
+$(document).ready(function () {
+  $("select").formSelect();
+
+  $("#saveBtn").on("click", () => {
+    let url = $("#profileURL").val();
+    let font = $("#font-choice").val();
+    let style = $("#view-choice").val();
+    let mode = $("#mode-choice").prop("checked");
+    console.log(url, font, style, mode);
+  });
+});
