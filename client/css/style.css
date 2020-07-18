@@ -98,3 +98,19 @@ footer.page-footer {
   max-width: 90%;
   max-height: 400px;
 }
+
+#font-TNR {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+#font-cd {
+  font-family: "Chalkduster", "fantasy" !important;
+}
+
+#font-cs {
+  font-family: "Comic Sans MS" !important;
+}
+
+#font-rb {
+  font-family: "Roboto" !important;
+}
