@@ -49,6 +49,11 @@ nav .brand-logo {
   z-index: 3;
 }
 
+.card-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
 p {
   line-height: 2rem;
 }

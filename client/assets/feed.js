@@ -38,9 +38,10 @@ $(document).ready(function () {
     console.log(arr);
     $(".card-container").html("");
     arr.forEach((todo) => {
+      $("#userName").prepend(`${todo.userName}`);
       $(".card-container").prepend(`
       <div class="row">
-        <div class="container col s12 m10 offset-m1" style="margin-top: 5rem;">
+        <div class=" col s12 m10 offset-m1" style="margin-top: 5rem;">
           
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -54,7 +55,7 @@ $(document).ready(function () {
               <span class="card-title activator grey-text text-darken-4"
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
-              <p><a class="userName">${todo.userName}</a></p>
+              
               <p class="userName">Posted by: ${todo.userName}</p>
 
             </div>
