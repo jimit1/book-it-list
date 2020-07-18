@@ -5,26 +5,17 @@ $(document).ready(function () {
   $(".modal").modal();
   $("#searchBtn").hide();
   $("#title").focus();
-
   const instance = M.Modal.getInstance(modal1);
-
   // sets up req.params style way to access info
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get("id");
   const postIdNum = parseInt(postId);
   let userId;
-
-  $.ajax({
-    type: "GET",
-    url: "/api/user_data",
-  }).then((res) => (userId = res.id));
-
   // if this is an update..
   if (postId != null) {
     // .. enable the delete button
     $("#delete").attr("class", "waves-effect waves-light btn");
     console.log(postIdNum);
-
     // .. and get the post using it's ID
     $.ajax({
       type: "GET",
@@ -38,13 +29,16 @@ $(document).ready(function () {
       $("#imgURL").val(res[0].imageURL);
       $("#imptURL").val(res[0].imptURL);
       $("#form-img").attr("src", res[0].imageURL);
+      $("select").formSelect();
+      $("#category").on("load", () => {});
+      if (res[0].category == 3) {
+        $("#searchBtn").show();
+      }
     });
-
     // otherwise, disable the delete button
   } else {
     $("#delete").attr("class", "waves-effect waves-light btn disabled");
   }
-
   let post = {
     userId: "",
     category: "",
@@ -53,7 +47,6 @@ $(document).ready(function () {
     imageURL: "",
     imptURL: "",
   };
-
   // Materialize returns a STRING number for .val()
   $("#category").on("change", () => {
     if ($("#category").val() == 3) {
@@ -62,17 +55,14 @@ $(document).ready(function () {
       $("#searchBtn").hide();
     }
   });
-
   $("#previewBtn").on("click", () => {
     $("#form-img").attr("src", $("#imgURL").val());
   });
-
   $("#searchBtn").on("click", () => {
     if ($("#title").val() === "") {
       instance.open();
     } else {
       // if the category is 'movies'
-
       if ($("#category").val() == 3) {
         $.ajax({
           type: "GET",
@@ -85,14 +75,12 @@ $(document).ready(function () {
           Rotten Tomatoes: ${res.Ratings[1].Value}\n
           Released: ${res.Year}\n
           Director(s): ${res.Director}`);
-
           $("#imgURL").val(res.Poster);
           $("#form-img").attr("src", res.Poster);
         });
       }
     }
   });
-
   // When the submit button is clicked..
   $("#btnSubmit").on("click", () => {
     // set the values for the post object
@@ -102,7 +90,6 @@ $(document).ready(function () {
     post.details = $("#details").val();
     post.imageURL = $("#imgURL").val();
     post.imptURL = $("#imptURL").val();
-
     // If any required fields are blank..
     if (
       $("#category").val() === null ||
@@ -120,9 +107,7 @@ $(document).ready(function () {
       if (postId === null) {
         console.log("no id");
         console.log(post);
-
         // ..submit a new post
-
         $.ajax({
           type: "POST",
           url: "/api/add",
@@ -131,15 +116,12 @@ $(document).ready(function () {
           M.toast({ html: "Successfully submitted new post" });
           setTimeout(() => window.location.replace("/feed"), 1500);
         });
-
         // ..otherwise..
       } else {
         // ..get the postId and add it to the post object
         post.postId = postIdNum;
         console.log(post);
-
         // ..then submit an update
-
         $.ajax({
           type: "PATCH",
           url: "/api/update",
@@ -151,10 +133,8 @@ $(document).ready(function () {
       }
     }
   });
-
   // a simple redirect, does nothing else
   $("#cancel").on("click", () => window.location.replace("/feed"));
-
   // this works so long as the URL is:
   // 'localhost:3000/newpost?id=' and a valid post ID (valid in your db)
   $("#delete").on("click", () => {
