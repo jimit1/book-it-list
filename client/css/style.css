@@ -48,10 +48,18 @@ nav .brand-logo {
   top: 10px;
   z-index: 3;
 }
-
 .card-container {
-  width: 95%;
+  padding-top: 4rem;
+}
+
+.card .card-image img {
   margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.card .card-title {
+  text-transform: capitalize;
 }
 
 p {

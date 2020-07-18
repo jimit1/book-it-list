@@ -41,7 +41,7 @@ $(document).ready(function () {
       $("#userName").prepend(`${todo.userName}`);
       $(".card-container").prepend(`
       <div class="row">
-        <div class=" col s12 m10 offset-m1" style="margin-top: 5rem;">
+        <div class=" col s12 m10 offset-m1"">
           
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">

@@ -68,6 +68,9 @@ $(document).ready(function () {
                 ${todo.details}
               </p> <br>
               <p class="imptURL">${todo.imptURL}</p>
+
+              <a href="/newpost?id=${todo.id}"><i class="material-icons">edit</i>Update</a>
+
             </div>
           </div>
         </div>
