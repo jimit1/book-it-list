@@ -8,8 +8,9 @@ $(document).ready(function () {
     type: "GET",
     url: "/api/user_data",
   }).then((user) => {
-    console.log(user);
+    console.log(user.userName);
     userID = user.id;
+
     userName = user.userName;
     userEmail = user.email;
   });
@@ -22,6 +23,7 @@ $(document).ready(function () {
         url: "/api/all",
       }).then((res) => {
         resolve(res);
+        console.log(res);
       });
     });
   };
@@ -43,21 +45,18 @@ $(document).ready(function () {
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <div class="carousel carousel-slider center">
-                <!-- div w/ img tag for img1 -->
-                <!-- <div class="carousel-item red white-text" href="#one!"> -->
-                  <img class="activator" src="${todo.imageURL}" />
-                <!-- </div> -->
-                <!-- div needs img tag for img2 -->
-                <!-- <div class="carousel-item amber white-text" href="#two!">
-                  <img class="activator" src="#" />
-                </div> -->
+                
+                <img class="activator" src="${todo.imageURL}" />
+                
               </div>
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4"
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
+              <p><a class="userName">${todo.userName}</a></p>
               <p class="userName">Posted by: ${todo.userName}</p>
+
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4"
