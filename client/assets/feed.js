@@ -10,6 +10,9 @@ $(document).ready(function () {
   }).then((user) => {
     console.log(user.userName);
     userID = user.id;
+
+    userName = user.userName;
+    userEmail = user.email;
   });
 
   // create a function to return all todos from DB
@@ -38,7 +41,7 @@ $(document).ready(function () {
       $(".card-container").prepend(`
       <div class="row">
         <div class="container col s12 m10 offset-m1" style="margin-top: 5rem;">
-          <h5>card reveal with carousel</h5>
+          
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <div class="carousel carousel-slider center">
@@ -52,14 +55,17 @@ $(document).ready(function () {
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
               <p><a class="userName">${todo.userName}</a></p>
+              <p class="userName">Posted by: ${todo.userName}</p>
+
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4"
-                >Card Title<i class="material-icons right">close</i></span
+                >${todo.title}<i class="material-icons right">close</i></span
               >
-              <p class="details">
-                ${todo.details}
-              </p> <br>
+              <p class="details">Details:</p>
+              <p>${todo.details}
+              </p>
+              <p>Additional URL(s):</p>
               <p class="imptURL">${todo.imptURL}</p>
             </div>
           </div>
