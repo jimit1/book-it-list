@@ -18,7 +18,7 @@ $(document).ready(function () {
   const getTodos = () => {
     return new Promise((resolve, reject) => {
       $.ajax({
-        type: "POST",
+        type: "GET",
         url: "/api/all",
       }).then((res) => {
         resolve(res);
