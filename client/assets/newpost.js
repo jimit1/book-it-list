@@ -90,7 +90,6 @@ $(document).ready(function () {
           Rotten Tomatoes: ${res.Ratings[1].Value}\n
           Released: ${res.Year}\n
           Director(s): ${res.Director}`);
-
           $("#imgURL").val(res.Poster);
           $("#form-img").attr("src", res.Poster);
         });
