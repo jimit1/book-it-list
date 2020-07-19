@@ -86,9 +86,13 @@ const addPost = (obj) => {
 
 const deletePost = (postId) => {
   return new Promise((resolve, reject) => {
-    connection.query("DELETE FROM posts WHERE ?", [{ id: postId }], (err) => {
-      err ? reject(err) : resolve("Deleted!");
-    });
+    connection.query(
+      "DELETE FROM posts WHERE ?",
+      [{ postid: postId }],
+      (err) => {
+        err ? reject(err) : resolve("Deleted!");
+      }
+    );
   });
 };
 
@@ -104,7 +108,7 @@ const editPost = (obj) => {
           imageURL: obj.imageURL,
           imptURL: obj.imptURL,
         },
-        { id: obj.postId },
+        { postid: obj.postId },
       ],
       (err) => {
         err ? reject(err) : resolve("Success");
