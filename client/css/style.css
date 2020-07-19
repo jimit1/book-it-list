@@ -132,3 +132,8 @@ footer.page-footer {
 #font-rb {
   font-family: sans-serif !important;
 }
+
+.footergoeshere {
+  bottom: 0;
+  width: 100%;
+}

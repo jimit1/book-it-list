@@ -100,7 +100,10 @@ $(document).ready(function () {
     <div class="footer-copyright">
       <div class="container">
         Made by
-      <a class="brown-text text-lighten-3" href="#">UCB Coding BootCamp</a>
+      <a class="white-text" href="https://www.linkedin.com/in/mathew-wilmot-937738174/">Mat Wilmot</a>, 
+      <a class="white-text" href="https://www.linkedin.com/in/sosukebrause/">Sosuke Brause</a>, 
+      <a class="white-text" href="https://www.linkedin.com/in/llee2018/">Louise Lee</a>, 
+      and <a class="white-text" href="https://www.linkedin.com/in/jimmehta/">Jim Mehta</a>
       </div>
     </div>
   </footer>`);
