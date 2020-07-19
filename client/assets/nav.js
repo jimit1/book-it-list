@@ -34,7 +34,7 @@ $(document).ready(function () {
     newpost = `
   <li>
     <div class="collapsible-header card-panel light-blue darken-4">
-      <a href="./newpost" style="color: white;">
+      <a href="./newpost">
         <i class="material-icons white-text">add</i>CREATE POST</a>
         </span>
     </div>

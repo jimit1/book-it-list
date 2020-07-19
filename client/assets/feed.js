@@ -87,7 +87,6 @@ $(document).ready(function () {
     console.log(arr);
     $(".card-container").html("");
     arr.forEach((todo) => {
-      $("#userName").prepend(`${todo.userName}`);
       $(".card-container").prepend(`
       <div class="row">
         <div class="col s12 m10 offset-m1">
