@@ -3,6 +3,8 @@ $(document).ready(function () {
   let feed = "";
   let members = "";
   let newpost = "";
+  let userEmail = "";
+  let userName = "";
 
   if (window.location.pathname !== "/settings") {
     settings = `  <li>
@@ -55,12 +57,12 @@ $(document).ready(function () {
   <div class="background">
     <img class="img-responsive" src="/img/bgr-everest2.jpg" />
   </div>
-  <!-- <a href="#user"><img id="navatar" class="circle" src="#" /></a> -->
+  <a href="#user"><img id="navatar" class="circle" src="#" /></a>
 
   <span id="userName" class="white-text name size-4"
-    >Name Placeholder</span
+    ></span
   >
-  <span id="userEmail" class="white-text email">Email Placeholder</span>
+  <span id="userEmail" class="white-text email"></span>
 </div>
 </li>`;
 
@@ -114,6 +116,7 @@ $(document).ready(function () {
     .then((res) => {
       userName = res.userName;
       userId = parseInt(res.id);
+      userEmail = res.email;
     })
     .then(() => {
       $.ajax({
@@ -123,9 +126,10 @@ $(document).ready(function () {
         JSON.parse(res[0].mode)
           ? $("body").attr("style", "background-color: white; color:black;")
           : $("body").attr("style", "background-color: black; color:white;");
-        if ((res[0].font = "font-rb")) {
-          $("body").attr("style", "font-family: Roboto;");
-        }
+        $("body").attr("id", res[0].font);
+        $("#navatar").attr("src", res[0].profileUrl);
+        $("#userName").text(userName);
+        $("#userEmail").text(userEmail);
       });
     });
 });
