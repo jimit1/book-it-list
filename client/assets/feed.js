@@ -40,8 +40,6 @@ $(document).ready(function () {
     $(".card-container").html("");
     $(".card-container").html(`<ul id="listView" class="collapsible"></ul>`);
     arr.forEach((todo) => {
-      $("#userName").prepend(`${todo.userName}`);
-
       $("#listView").prepend(`
         <li>
           <div class="collapsible-header">
