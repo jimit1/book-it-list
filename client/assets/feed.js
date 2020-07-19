@@ -37,23 +37,22 @@ $(document).ready(function () {
 
   // define the render function
   const renderListView = (arr) => {
-    $(".collapsible").collapsible();
-
     $(".card-container").html("");
     $(".card-container").html(`<ul id="listView" class="collapsible"></ul>`);
     arr.forEach((todo) => {
       $("#userName").prepend(`${todo.userName}`);
 
       $("#listView").prepend(`
-    
-            <li>
-              <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-            </li>
-       
-     
-      `);
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>${todo.title}
+          </div>
+          <div class="collapsible-body">
+            <span>${todo.details}</span>
+          </div>
+        </li>`);
     });
+    $(".collapsible").collapsible();
   };
 
   const renderCardView = (arr) => {
@@ -98,12 +97,3 @@ $(document).ready(function () {
     });
   };
 });
-
-// <li>
-//   <div class="collapsible-header">
-//     <i class="material-icons">filter_drama</i>${todo.title}
-//   </div>
-//   <div class="collapsible-body">
-//     <span>${todo.details}</span>
-//   </div>
-// </li>;
