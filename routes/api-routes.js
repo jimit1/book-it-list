@@ -13,30 +13,27 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
 });
 
 router.post("/api/signup", (req, res) => {
-  newUser = {
-    email = req.body.email,
-    password = req.body.password,
-    userName = req.body.userName
-  }
-  console.log(req.body.email, req.body.password, req.body.userName);
-  createUser(newUser)
-    .then((allPosts) => res.json(allPosts))
-    .catch((err) => res.json(err));
+  //   newUser = {
+  //     email = req.body.email,
+  //     password = req.body.password,
+  //     userName = req.body.userName
+  //   }
+  //   console.log(req.body.email, req.body.password, req.body.userName);
+  //   createUser(newUser)
+  //     .then((allPosts) => res.json(allPosts))
+  //     .catch((err) => res.json(err));
+  // });
+
+  db.User.create({
+    email: req.body.email,
+    password: req.body.password,
+    userName: req.body.userName,
+  })
+    .then(() => {
+      res.redirect(307, "/api/login");
+    })
+    .catch((err) => res.status(401).json(err));
 });
-
-
-
-
-// db.User.create({
-//   email: req.body.email,
-//   password: req.body.password,
-//   userName: req.body.userName,
-// })
-//   .then(() => {
-//     res.redirect(307, "/api/login");
-//   })
-//   .catch((err) => res.status(401).json(err));
-// });
 
 router.get("/logout", (req, res) => {
   req.logout();
@@ -54,7 +51,7 @@ router.get("/api/user_data", (req, res) => {
 });
 
 const {
-  createUser,
+  // createUser,
   seeAllPosts,
   userPost,
   userOnePost,

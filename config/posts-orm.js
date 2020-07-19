@@ -37,23 +37,23 @@ connection.query(
   }
 );
 
-const createUser = (newUserObj) => {
-  return new Promise((resolve, reject) => {
-    connection.query(
-      "INSERT INTO users SET ?",
-      [
-        {
-          email: newUserObj.email,
-          password: newUserObj.password,
-          userName: newUserObj.userName,
-        },
-      ],
-      (err) => {
-        err ? reject(err) : resolve("success");
-      }
-    );
-  });
-};
+// const createUser = (newUserObj) => {
+//   return new Promise((resolve, reject) => {
+//     connection.query(
+//       "INSERT INTO users SET ?",
+//       [
+//         {
+//           email: newUserObj.email,
+//           password: newUserObj.password,
+//           userName: newUserObj.userName,
+//         },
+//       ],
+//       (err) => {
+//         err ? reject(err) : resolve("success");
+//       }
+//     );
+//   });
+// };
 
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
@@ -151,7 +151,7 @@ const editPost = (obj) => {
 };
 
 module.exports = {
-  createUser,
+  // createUser,
   seeAllPosts,
   userPost,
   addPost,
