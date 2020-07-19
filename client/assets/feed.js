@@ -90,7 +90,7 @@ $(document).ready(function () {
       $("#userName").prepend(`${todo.userName}`);
       $(".card-container").prepend(`
       <div class="row">
-        <div class=" col s12 m10 offset-m1">
+        <div class="col s12 m10 offset-m1">
           
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"
+              <span class="card-title grey-text text-darken-4 grab-mode"
                 >${todo.title}<i class="material-icons right">close</i></span
               >
               <p class="details">Details:</p>

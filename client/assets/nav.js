@@ -137,11 +137,15 @@ $(document).ready(function () {
 
 const lightMode = () => {
   $("body").attr("class", "light-mode");
-  $(".card-content").attr("class", "card-content light-mode");
-  $(".card-title").attr(
+  $(".activator").attr(
     "class",
     "card-title activator grey-text text-darken-4 light-mode"
   );
+  $(".grab-mode").attr(
+    "class",
+    "card-title grab-mode grey-text text-darken-4 light-mode"
+  );
+  $(".card-content").attr("class", "card-content light-mode");
   $(".validate").attr("class", "validate valid light-mode");
   $("#font-choice").attr("class", "light-mode");
   $(".dropdown-trigger").attr(
@@ -155,15 +159,23 @@ const lightMode = () => {
     "class",
     "dropdown-content select-dropdown light-mode"
   );
+  $(".collapsible-header").attr("class", "collapsible-header light-mode");
+
+  $(".card").attr("class", "card light-mode");
+  $(".card-reveal").attr("class", "card-reveal light-mode");
 };
 
 const darkMode = () => {
   $("body").attr("class", "dark-mode");
-  $(".card-content").attr("class", "card-content dark-mode");
-  $(".card-title").attr(
+  $(".activator").attr(
     "class",
     "card-title activator white-text text-lighten-4 dark-mode"
   );
+  $(".grab-mode").attr(
+    "class",
+    "card-title grab-mode white-text text-lighten-4 dark-mode"
+  );
+  $(".card-content").attr("class", "card-content dark-mode");
   $(".validate").attr("class", "validate valid dark-mode");
   $("#font-choice").attr("class", "dark-mode");
   $(".dropdown-trigger").attr(
@@ -178,4 +190,8 @@ const darkMode = () => {
     "class",
     "dropdown-content select-dropdown dark-mode"
   );
+  $(".collapsible-header").attr("class", "collapsible-header dark-mode");
+
+  $(".card").attr("class", "card dark-mode");
+  $(".card-reveal").attr("class", "card-reveal dark-mode");
 };
