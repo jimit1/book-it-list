@@ -9,6 +9,16 @@
   margin-top: 800px;
 }
 
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: white;
+}
+
 .brand-logo {
   /* color: #2c2c2c; */
   font-family: "Bungee", cursive;
@@ -130,5 +140,17 @@ footer.page-footer {
 }
 
 #font-rb {
-  font-family: "Roboto" !important;
+  font-family: sans-serif !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+#listView {
+  margin-bottom: 7rem;
 }

@@ -61,7 +61,7 @@ $(document).ready(function () {
               <p><a class="userName">${todo.userName}</a></p>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"
+              <span class="card-title grey-text text-darken-4 grab-mode"
                 >${todo.title}<i class="material-icons right">close</i></span
               >
               <p class="details">
