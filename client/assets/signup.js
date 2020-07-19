@@ -32,7 +32,7 @@ $(document).ready(function () {
             view: "card-view",
           },
         }).then((res) => {
-          // window.location.replace("/feed");
+          window.location.replace("/feed");
         });
       });
     });

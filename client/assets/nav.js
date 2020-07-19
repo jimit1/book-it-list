@@ -96,7 +96,8 @@ $(document).ready(function () {
   };
 
   const loadFooter = () => {
-    $(".footergoeshere").html(`<footer class="page-footer teal">
+    $(".footergoeshere").html(`
+  <footer class="page-footer teal">
     <div class="footer-copyright">
       <div class="container">
         Made by
