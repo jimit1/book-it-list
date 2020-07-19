@@ -40,7 +40,7 @@ router.get("/members", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/members.html"));
 });
 
-router.get("/newpost", isAuthenticated, (req, res) => {
+router.get("/newpost", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/newpost.html"));
 });
 

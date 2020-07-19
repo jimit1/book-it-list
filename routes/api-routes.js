@@ -134,8 +134,8 @@ router.post("/api/addSettings", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.get("/api/allSettings", (req, res) => {
-  seeSettings(parseInt(req.body.userId))
+router.get("/api/seeSettings/:userId", (req, res) => {
+  seeSettings(parseInt(req.params.userId))
     .then((allPosts) => res.json(allPosts))
     .catch((err) => res.json(err));
 });
