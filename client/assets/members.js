@@ -46,7 +46,7 @@ $(document).ready(function () {
 
       $(".card-container").prepend(`
       <div class="row">
-        <div class="container col s12 m10 offset-m1" style="margin-top: 5rem;">
+        <div class="container col s12 m10 offset-m1" >
           <h5>Added to: ${todo.category}</h5>
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -68,6 +68,9 @@ $(document).ready(function () {
                 ${todo.details}
               </p> <br>
               <p class="imptURL">${todo.imptURL}</p>
+
+              <a href="/newpost?id=${todo.id}"><i class="material-icons">edit</i>Update</a>
+
             </div>
           </div>
         </div>
