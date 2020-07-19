@@ -110,7 +110,7 @@ $(document).ready(function () {
   };
 
   loadNavbar();
-  // loadFooter();
+  loadFooter();
 
   $.ajax({
     type: "GET",
