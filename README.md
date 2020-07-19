@@ -22,7 +22,7 @@ With Book It, you can easily add, update, delete, and share your dreams with the
 
 * Must meet good quality coding standards:
   - ✅&nbsp; Indentation
-  - ✅&nbsp;S coping
+  - ✅&nbsp; Scoping
   - ⚙️&nbsp; Naming
 
 - ✅&nbsp; Must protect API keys in Node with environment variables
