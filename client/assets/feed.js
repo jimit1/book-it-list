@@ -63,7 +63,7 @@ $(document).ready(function () {
         <li>
         <span class="card-title activator grey-text text-darken-4"> 
         <div class="collapsible-header">
-            ${todo.userName} added '${todo.title}' to their '${todo.category}' list!
+            <h5>${todo.userName} added '${todo.title}' to their '${todo.category}' list!</h5>
           </div>
         </span>
           
