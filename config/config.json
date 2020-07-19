@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Booyah5%",
+    "password": "password",
     "database": "todo_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

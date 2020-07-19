@@ -8,30 +8,33 @@ $(document).ready(function () {
   $.ajax({
     type: "GET",
     url: "/api/user_data",
-  }).then((user) => {
-    console.log(user.userName);
-    userID = user.id;
-    userName = user.userName;
-    userEmail = user.email;
-    $("#userName").text(user.userName);
-    $("#userEmail").text(user.email);
-  });
+  })
+    .then((user) => {
+      userID = user.id;
+      userName = user.userName;
+      userEmail = user.email;
+      $("#userName").text(user.userName);
+      $("#userEmail").text(user.email);
+      console.log(userID);
+    })
+    .then(() => {
+      $.ajax({
+        type: "GET",
+        url: `api/seeSettings/${userID}`,
+      }).then((res) => {
+        if (res[0].view === "card-view") {
+          getTodos().then((res) => {
+            renderCardView(res);
+          });
+        } else if (res[0].view === "list-view") {
+          getTodos().then((res) => {
+            renderListView(res);
+          });
+        }
+      });
+    });
 
   // get current user's settings
-  $.ajax({
-    type: "GET",
-    url: `api/seeSettings/10`,
-  }).then((res) => {
-    if (res[0].view === "card-view") {
-      getTodos().then((res) => {
-        renderCardView(res);
-      });
-    } else if (res[0].view === "list-view") {
-      getTodos().then((res) => {
-        renderListView(res);
-      });
-    }
-  });
 
   // create a function to return all todos from DB
   const getTodos = () => {

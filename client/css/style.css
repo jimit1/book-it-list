@@ -9,6 +9,16 @@
   margin-top: 800px;
 }
 
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: white;
+}
+
 .brand-logo {
   /* color: #2c2c2c; */
   font-family: "Bungee", cursive;
