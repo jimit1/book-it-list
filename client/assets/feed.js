@@ -58,11 +58,22 @@ $(document).ready(function () {
     arr.forEach((todo) => {
       $("#listView").prepend(`
         <li>
-          <div class="collapsible-header">
-            <i class="material-icons">filter_drama</i>${todo.title}
+        <span class="card-title activator grey-text text-darken-4"> 
+        <div class="collapsible-header">
+            ${todo.userName} added '${todo.title}' to their '${todo.category}' list!
           </div>
+        </span>
+          
           <div class="collapsible-body">
-            <span>${todo.details}</span>
+            <div class="carousel carousel-slider center">
+              <img class="activator" src="${todo.imageURL}" />
+            </div>
+            <div class="flow-text">
+              <p class="details">Details:</p>
+              <p> ${todo.details}</p>
+              <p>Additional URL(s):</p>
+              <p class="imptURL">${todo.imptURL}</p>
+            </div>
           </div>
         </li>`);
     });
@@ -91,7 +102,7 @@ $(document).ready(function () {
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
 
-              <p class="userName">Posted by: ${todo.userName}</p>
+              <p class="userName">Posted by ${todo.userName} in the '${todo.category}' category</p>
 
             </div>
             <div class="card-reveal">
@@ -99,8 +110,7 @@ $(document).ready(function () {
                 >${todo.title}<i class="material-icons right">close</i></span
               >
               <p class="details">Details:</p>
-              <p>${todo.details}
-              </p>
+              <p>${todo.details}</p>
               <p>Additional URL(s):</p>
               <p class="imptURL">${todo.imptURL}</p>
             </div>
