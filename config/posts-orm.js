@@ -22,6 +22,39 @@ connection.query(
   }
 );
 
+connection.query(
+  `CREATE TABLE IF NOT EXISTS users (
+	id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(500) NOT NULL,
+    userName VARCHAR(100) NOT NULL,
+    createdAt VARCHAR (100),
+    updatedAt VARCHAR (100),
+    PRIMARY KEY (id)
+);`,
+  (err) => {
+    if (err) throw err;
+  }
+);
+
+// const createUser = (newUserObj) => {
+//   return new Promise((resolve, reject) => {
+//     connection.query(
+//       "INSERT INTO users SET ?",
+//       [
+//         {
+//           email: newUserObj.email,
+//           password: newUserObj.password,
+//           userName: newUserObj.userName,
+//         },
+//       ],
+//       (err) => {
+//         err ? reject(err) : resolve("success");
+//       }
+//     );
+//   });
+// };
+
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -86,9 +119,13 @@ const addPost = (obj) => {
 
 const deletePost = (postId) => {
   return new Promise((resolve, reject) => {
-    connection.query("DELETE FROM posts WHERE ?", [{ id: postId }], (err) => {
-      err ? reject(err) : resolve("Deleted!");
-    });
+    connection.query(
+      "DELETE FROM posts WHERE ?",
+      [{ postid: postId }],
+      (err) => {
+        err ? reject(err) : resolve("Deleted!");
+      }
+    );
   });
 };
 
@@ -104,7 +141,7 @@ const editPost = (obj) => {
           imageURL: obj.imageURL,
           imptURL: obj.imptURL,
         },
-        { id: obj.postId },
+        { postid: obj.postId },
       ],
       (err) => {
         err ? reject(err) : resolve("Success");
@@ -114,6 +151,7 @@ const editPost = (obj) => {
 };
 
 module.exports = {
+  // createUser,
   seeAllPosts,
   userPost,
   addPost,
