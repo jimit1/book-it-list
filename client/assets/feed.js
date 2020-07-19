@@ -11,9 +11,10 @@ $(document).ready(function () {
   }).then((user) => {
     console.log(user.userName);
     userID = user.id;
-
     userName = user.userName;
     userEmail = user.email;
+    $("#userName").text(user.userName);
+    $("#userEmail").text(user.email);
   });
 
   // create a function to return all todos from DB
@@ -76,7 +77,7 @@ $(document).ready(function () {
               <span class="card-title activator grey-text text-darken-4"
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
-              
+
               <p class="userName">Posted by: ${todo.userName}</p>
 
             </div>
