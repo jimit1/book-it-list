@@ -38,7 +38,7 @@ const seeAllPosts = () => {
 const userPost = (userIdInput) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT * FROM posts 
+      `SELECT posts.id, userId, category, title, details, imageURL, imptURL FROM posts 
       LEFT JOIN users ON
       users.id = posts.userId WHERE ?`,
       [{ userId: userIdInput }],
