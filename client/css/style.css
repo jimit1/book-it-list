@@ -133,7 +133,14 @@ footer.page-footer {
   font-family: sans-serif !important;
 }
 
-.footergoeshere {
-  bottom: 0;
-  width: 100%;
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+#listView {
+  margin-bottom: 7rem;
 }
