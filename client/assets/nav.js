@@ -17,7 +17,7 @@ $(document).ready(function () {
   if (window.location.pathname !== "/feed") {
     feed = `  <li>
 <div class="collapsible-header">
-  <a href="./feed"><i class="material-icons">home</i>Feed</a>
+  <a href="./feed"><i class="material-icons">list</i>ALL POSTS</a>
 </div>
 </li>`;
   }
@@ -25,7 +25,7 @@ $(document).ready(function () {
   if (window.location.pathname !== "/members") {
     members = `  <li>
   <div class="collapsible-header">
-    <a href="./members"><i class="material-icons">account_circle</i>MEMBERS</a>
+    <a href="./members"><i class="material-icons">home</i>HOME</a>
   </div>
   </li>`;
   }
