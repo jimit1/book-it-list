@@ -22,6 +22,21 @@ connection.query(
   }
 );
 
+connection.query(
+  `CREATE TABLE IF NOT EXISTS users (
+	id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(500) NOT NULL,
+    userName VARCHAR(100) NOT NULL,
+    createdAt VARCHAR (100),
+    updatedAt VARCHAR (100),
+    PRIMARY KEY (id)
+);`,
+  (err) => {
+    if (err) throw err;
+  }
+);
+
 const seeAllPosts = () => {
   return new Promise((resolve, reject) => {
     connection.query(
