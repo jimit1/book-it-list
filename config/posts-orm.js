@@ -8,14 +8,14 @@ connection.connect((err) => {
 
 connection.query(
   `CREATE TABLE IF NOT EXISTS posts (
-  id INT NOT NULL AUTO_INCREMENT,
+  postid INT NOT NULL AUTO_INCREMENT,
   userId INT NOT NULL,
   category VARCHAR(80) NOT NULL,
   title VARCHAR(200) NOT NULL,
   details VARCHAR(500) NOT NULL,
   imageURL VARCHAR(200) NOT NULL,
   imptURL VARCHAR(200),
-  PRIMARY KEY (id)
+  PRIMARY KEY (postid)
 )`,
   (err) => {
     if (err) throw err;
@@ -38,7 +38,7 @@ const seeAllPosts = () => {
 const userPost = (userIdInput) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      `SELECT posts.id, userId, category, title, details, imageURL, imptURL, userName FROM posts 
+      `SELECT postid, userId, category, title, details, imageURL, imptURL, userName FROM posts 
       LEFT JOIN users ON
       users.id = posts.userId WHERE ?`,
       [{ userId: userIdInput }],
@@ -52,8 +52,10 @@ const userPost = (userIdInput) => {
 const userOnePost = (postId) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT * FROM posts WHERE ?",
-      [{ id: postId }],
+      `SELECT postid, userId, category, title, details, imageURL, imptURL, userName FROM posts 
+      LEFT JOIN users ON
+      users.id = posts.userId WHERE ?`,
+      [{ postid: postId }],
       (err, data) => {
         err ? reject(err) : resolve(data);
       }
