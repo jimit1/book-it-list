@@ -17,6 +17,22 @@ $(document).ready(function () {
     $("#userEmail").text(user.email);
   });
 
+  // get current user's settings
+  $.ajax({
+    type: "GET",
+    url: `api/seeSettings/10`,
+  }).then((res) => {
+    if (res[0].view === "card-view") {
+      getTodos().then((res) => {
+        renderCardView(res);
+      });
+    } else if (res[0].view === "list-view") {
+      getTodos().then((res) => {
+        renderListView(res);
+      });
+    }
+  });
+
   // create a function to return all todos from DB
   const getTodos = () => {
     return new Promise((resolve, reject) => {
@@ -31,9 +47,9 @@ $(document).ready(function () {
   };
 
   // run the getTodos function, then run the render function with the result
-  getTodos().then((res) => {
-    renderListView(res);
-  });
+  // getTodos().then((res) => {
+  //   renderListView(res);
+  // });
 
   // define the render function
   const renderListView = (arr) => {
