@@ -15,7 +15,7 @@ $(document).ready(function () {
       userEmail = user.email;
       $("#userName").text(user.userName);
       $("#userEmail").text(user.email);
-      console.log(userID);
+      console.log(user);
     })
     .then(() => {
       $.ajax({
