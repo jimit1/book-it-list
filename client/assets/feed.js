@@ -2,6 +2,7 @@ $(document).ready(function () {
   let userID;
   let userName;
   let userEmail;
+  $(".collapsible").collapsible();
 
   // get the user currently logged in
   $.ajax({
@@ -31,11 +32,31 @@ $(document).ready(function () {
 
   // run the getTodos function, then run the render function with the result
   getTodos().then((res) => {
-    renderTodos(res);
+    renderListView(res);
   });
 
   // define the render function
-  const renderTodos = (arr) => {
+  const renderListView = (arr) => {
+    $(".collapsible").collapsible();
+
+    $(".card-container").html("");
+    $(".card-container").html(`<ul id="listView" class="collapsible"></ul>`);
+    arr.forEach((todo) => {
+      $("#userName").prepend(`${todo.userName}`);
+
+      $("#listView").prepend(`
+    
+            <li>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+       
+     
+      `);
+    });
+  };
+
+  const renderCardView = (arr) => {
     console.log(arr);
     $(".card-container").html("");
     arr.forEach((todo) => {
@@ -74,41 +95,15 @@ $(document).ready(function () {
         </div>
       </div>
       `);
-      //     `
-      //   Jim added an item to ${todo.category}
-      //   <div class="row">
-      //     <div class="col s12 m10 offset-m1" >
-      //       <h5>card reveal with carousel</h5>
-      //       <div class="card">
-      //         <div class="card-image waves-effect waves-block waves-light">
-      //           <div class="carousel carousel-slider center">
-      //             <div class="carousel-item red white-text" href="#one!">
-      //               <img class="activator" src="${todo.imgURL}" />
-      //             </div>
-      //           </div>
-      //         </div>
-      //         <div class="card-content">
-      //           <span class="card-title activator grey-text text-darken-4"
-      //             >Visit Paris<i class="material-icons right">more_vert</i></span
-      //           >
-      //           <p><a href="#">${user}</a></p>
-      //         </div>
-      //         <div class="card-reveal">
-      //           <span class="card-title grey-text text-darken-4"
-      //             >${todo.title}<i class="material-icons right">close</i></span
-      //           >
-      //           <p>
-      //             ${todo.details}
-      //             <br>
-      //             ${todo.imptURL}
-
-      //           </p>
-
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // `
     });
   };
 });
+
+// <li>
+//   <div class="collapsible-header">
+//     <i class="material-icons">filter_drama</i>${todo.title}
+//   </div>
+//   <div class="collapsible-body">
+//     <span>${todo.details}</span>
+//   </div>
+// </li>;
