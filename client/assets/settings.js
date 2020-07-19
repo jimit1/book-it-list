@@ -16,7 +16,6 @@ $(document).ready(function () {
         type: "GET",
         url: `/api/seeSettings/${userId}`,
       }).then((res) => {
-        console.log(res);
         $("#form-img").attr("src", res[0].profileUrl);
         $("#profileURL").val(res[0].profileUrl);
         $("#font-choice").val(res[0].font);

@@ -106,4 +106,26 @@ $(document).ready(function () {
 
   loadNavbar();
   loadFooter();
+
+  $.ajax({
+    type: "GET",
+    url: "/api/user_data",
+  })
+    .then((res) => {
+      userName = res.userName;
+      userId = parseInt(res.id);
+    })
+    .then(() => {
+      $.ajax({
+        type: "GET",
+        url: `/api/seeSettings/${userId}`,
+      }).then((res) => {
+        JSON.parse(res[0].mode)
+          ? $("body").attr("style", "background-color: white; color:black;")
+          : $("body").attr("style", "background-color: black; color:white;");
+        if ((res[0].font = "font-rb")) {
+          $("body").attr("style", "font-family: Roboto;");
+        }
+      });
+    });
 });
