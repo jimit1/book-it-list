@@ -126,9 +126,7 @@ $(document).ready(function () {
         type: "GET",
         url: `/api/seeSettings/${userId}`,
       }).then((res) => {
-        JSON.parse(res[0].mode)
-          ? $("body").attr("style", "background-color: white; color:black;")
-          : $("body").attr("style", "background-color: black; color:white;");
+        JSON.parse(res[0].mode) ? lightMode() : darkMode();
         $("body").attr("id", res[0].font);
         $("#navatar").attr("src", res[0].profileUrl);
         $("#userName").text(userName);
@@ -136,3 +134,64 @@ $(document).ready(function () {
       });
     });
 });
+
+const lightMode = () => {
+  $("body").attr("class", "light-mode");
+  $(".activator").attr(
+    "class",
+    "card-title activator grey-text text-darken-4 light-mode"
+  );
+  $(".grab-mode").attr(
+    "class",
+    "card-title grab-mode grey-text text-darken-4 light-mode"
+  );
+  $(".card-content").attr("class", "card-content light-mode");
+  $(".validate").attr("class", "validate valid light-mode");
+  $("#font-choice").attr("class", "light-mode");
+  $(".dropdown-trigger").attr(
+    "class",
+    "select-dropdown dropdown-trigger light-mode"
+  );
+  $(".my-nav").attr("class", "my-nav white");
+  $("#slide-out").attr("class", "sidenav collapsible popout light-mode");
+  $(".carousel").attr("class", "carousel carousel-slider center light-mode");
+  $(".dropdown-content").attr(
+    "class",
+    "dropdown-content select-dropdown light-mode"
+  );
+  $(".collapsible-header").attr("class", "collapsible-header light-mode");
+
+  $(".card").attr("class", "card light-mode");
+  $(".card-reveal").attr("class", "card-reveal light-mode");
+};
+
+const darkMode = () => {
+  $("body").attr("class", "dark-mode");
+  $(".activator").attr(
+    "class",
+    "card-title activator white-text text-lighten-4 dark-mode"
+  );
+  $(".grab-mode").attr(
+    "class",
+    "card-title grab-mode white-text text-lighten-4 dark-mode"
+  );
+  $(".card-content").attr("class", "card-content dark-mode");
+  $(".validate").attr("class", "validate valid dark-mode");
+  $("#font-choice").attr("class", "dark-mode");
+  $(".dropdown-trigger").attr(
+    "class",
+    "select-dropdown dropdown-trigger dark-mode"
+  );
+  $(".my-nav").attr("class", "my-nav grey darken-4");
+  $("#slide-out").attr("class", "sidenav collapsible popout dark-mode");
+  $(".carousel").attr("class", "carousel carousel-slider center dark-mode");
+  $("#font-choice").attr("class", "dark-mode");
+  $(".dropdown-content").attr(
+    "class",
+    "dropdown-content select-dropdown dark-mode"
+  );
+  $(".collapsible-header").attr("class", "collapsible-header dark-mode");
+
+  $(".card").attr("class", "card dark-mode");
+  $(".card-reveal").attr("class", "card-reveal dark-mode");
+};

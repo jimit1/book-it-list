@@ -58,6 +58,17 @@ router.get("/api/omdb/:title", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+router.get("/api/unsplash/:title", (req, res) => {
+  axios
+    .get(
+      `https://api.unsplash.com/search/photos/?client_id=${process.env.unsplashApi}&query=${req.params.title}`
+    )
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => res.json(err));
+});
+
 // see all todos--working, showing todos on web
 router.get("/api/all", (req, res) => {
   seeAllPosts()
