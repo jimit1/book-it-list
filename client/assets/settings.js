@@ -28,7 +28,6 @@ $(document).ready(function () {
       });
     });
 
-  $("select").formSelect();
   $("#saveBtn").on("click", () => {
     $.ajax({
       type: "PATCH",
