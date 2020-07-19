@@ -4,12 +4,13 @@ $(document).ready(function () {
   const unInput = $("#unInput");
 
   $("#signupSubmit").on("click", () => {
-    console.log("clicked");
     const User = {
       email: emailInput.val().trim(),
       password: pwInput.val().trim(),
       userName: unInput.val().trim(),
     };
+
+    console.log(User);
 
     $.ajax({
       type: "POST",
@@ -31,7 +32,7 @@ $(document).ready(function () {
             view: "card-view",
           },
         }).then((res) => {
-          window.location.replace("/feed");
+          // window.location.replace("/feed");
         });
       });
     });
