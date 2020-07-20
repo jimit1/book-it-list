@@ -28,9 +28,6 @@ module.exports = function (sequelize, DataTypes) {
     return bcryptjs.compareSync(password, this.password);
   };
 
-  //encription
-  // not sure I understand this
-
   User.addHook("beforeCreate", (user) => {
     user.password = bcryptjs.hashSync(
       user.password,

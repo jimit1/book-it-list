@@ -7,22 +7,11 @@ require("dotenv").config();
 const newUser = {};
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
-  console.log("howdy!");
   userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
 
 router.post("/api/signup", (req, res) => {
-  //   newUser = {
-  //     email = req.body.email,
-  //     password = req.body.password,
-  //     userName = req.body.userName
-  //   }
-  //   console.log(req.body.email, req.body.password, req.body.userName);
-  //   createUser(newUser)
-  //     .then((allPosts) => res.json(allPosts))
-  //     .catch((err) => res.json(err));
-  // });
   db.User.create({
     email: req.body.email,
     password: req.body.password,
