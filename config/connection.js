@@ -9,8 +9,8 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "password",
-    database: "y88kyd2v2ldv4xen",
+    password: "Booyah5%",
+    database: "todo_db",
   });
 }
 
