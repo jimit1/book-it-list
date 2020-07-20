@@ -51,6 +51,7 @@ nav .brand-logo {
 
 .signup-nav {
   padding: 8px;
+  padding-top: 16px;
   margin-right: 8px;
   box-sizing: border-box;
   position: fixed;

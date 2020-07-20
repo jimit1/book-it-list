@@ -33,11 +33,9 @@ $(document).ready(function () {
   if (window.location.pathname !== "/newpost") {
     newpost = `
   <li>
-    <div class="collapsible-header card-panel light-blue darken-4">
-      <a href="./newpost">
-        <i class="material-icons white-text">add</i>CREATE POST</a>
-        </span>
-    </div>
+  <div class="collapsible-header">
+    <a href="./newpost"><i class="material-icons">add</i>CREATE POST</a>
+  </div>
   </li>`;
   }
 
