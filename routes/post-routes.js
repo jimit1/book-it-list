@@ -60,10 +60,9 @@ router.delete("/delete/:id", (req, res) => {
   });
 });
 
-// *** doesnt currently work ***
 // update a post by it's id
 // /api/posts/update
-router.patch("/posts/update", (req, res) => {
+router.patch("/update", (req, res) => {
   db.Post.update(
     {
       category: req.body.category,
@@ -73,7 +72,9 @@ router.patch("/posts/update", (req, res) => {
       imptURL: req.body.imptURL,
     },
     { where: { id: req.body.id } }
-  );
+  ).then(() => {
+    res.send("Success");
+  });
 });
 
 module.exports = router;
