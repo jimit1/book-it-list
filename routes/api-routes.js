@@ -4,9 +4,9 @@ const passport = require("../config/passport.js");
 const db = require("../models");
 const axios = require("axios");
 require("dotenv").config();
+const newUser = {};
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
-  console.log("howdy!");
   userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
@@ -39,6 +39,7 @@ router.get("/api/user_data", (req, res) => {
 });
 
 const {
+  // createUser,
   seeAllPosts,
   userPost,
   userOnePost,
@@ -51,6 +52,17 @@ router.get("/api/omdb/:title", (req, res) => {
   axios
     .get(
       `https://www.omdbapi.com/?t=${req.params.title}&apikey=${process.env.OMDB_API}`
+    )
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((err) => res.json(err));
+});
+
+router.get("/api/unsplash/:title", (req, res) => {
+  axios
+    .get(
+      `https://api.unsplash.com/search/photos/?client_id=${process.env.unsplashApi}&query=${req.params.title}`
     )
     .then((response) => {
       res.json(response.data);
@@ -121,6 +133,7 @@ const {
   updateSettings,
   seeSettings,
 } = require("../config/settings-orm");
+const connection = require("../config/connection.js");
 
 router.post("/api/addSettings", (req, res) => {
   let newSettings = {
@@ -135,8 +148,8 @@ router.post("/api/addSettings", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-router.get("/api/allSettings", (req, res) => {
-  seeSettings(parseInt(req.body.userId))
+router.get("/api/seeSettings/:userId", (req, res) => {
+  seeSettings(parseInt(req.params.userId))
     .then((allPosts) => res.json(allPosts))
     .catch((err) => res.json(err));
 });

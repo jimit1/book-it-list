@@ -9,6 +9,16 @@
   margin-top: 800px;
 }
 
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #212121;
+  color: white;
+}
+
 .brand-logo {
   /* color: #2c2c2c; */
   font-family: "Bungee", cursive;
@@ -130,5 +140,28 @@ footer.page-footer {
 }
 
 #font-rb {
-  font-family: "Roboto" !important;
+  font-family: sans-serif !important;
+}
+
+#listView {
+  margin-bottom: 7rem;
+}
+
+.html {
+  position: relative !important;
+  min-height: 100% !important;
+}
+
+.body {
+  margin: 0 0 100px !important;
+  /* bottom = footer height */
+}
+
+.footergoeshere {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
 }

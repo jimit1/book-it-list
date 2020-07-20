@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
     res.redirect("/feed");
   }
   //if user does NOT exist, redirect to signup page
-  res.sendFile(path.join(__dirname, "../client/signup.html"));
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 // Log In page
 router.get("/login", (req, res) => {
@@ -19,7 +19,7 @@ router.get("/login", (req, res) => {
     res.redirect("/feed");
   }
   // if NOT logged in redirect to signup page
-  res.sendFile(path.join(__dirname, "../client/login.html"));
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 // Sign Up page
@@ -29,7 +29,7 @@ router.get("/signup", (req, res) => {
     res.redirect("/feed");
   }
   // if NOT logged in redirect to signup page
-  res.sendFile(path.join(__dirname, "../client/login.html"));
+  res.sendFile(path.join(__dirname, "../client/index.html"));
 });
 
 // FEED page
@@ -44,12 +44,8 @@ router.get("/newpost", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/newpost.html"));
 });
 
-router.get("/settings", (req, res) => {
+router.get("/settings", isAuthenticated, (req, res) => {
   res.sendFile(path.join(__dirname, "../client/settings.html"));
-});
-
-router.get("/members", isAuthenticated, (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/members.html"));
 });
 
 module.exports = router;
