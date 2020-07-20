@@ -3470,6 +3470,7 @@ table span.badge {
   -webkit-font-feature-settings: "liga";
   -moz-font-feature-settings: "liga";
   font-feature-settings: "liga";
+  vertical-align: sub;
 }
 
 .container {
@@ -4379,7 +4380,7 @@ nav .brand-logo {
   color: #fff;
   display: inline-block;
   font-size: 2.1rem;
-  padding: 0;
+  padding-top: 8px;
 }
 
 nav .brand-logo.center {
