@@ -99,7 +99,7 @@ $(document).ready(function () {
     $(".footergoeshere").html(`
   <footer class="page-footer teal">
     <div class="footer-copyright">
-      <div class="container">
+      <div class="container" style="text-align: center;">
         Made by
       <a class="white-text" href="https://www.linkedin.com/in/mathew-wilmot-937738174/">Mat Wilmot</a>, 
       <a class="white-text" href="https://www.linkedin.com/in/sosukebrause/">Sosuke Brause</a>, 
