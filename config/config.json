@@ -1,13 +1,17 @@
 {
   "development": {
     "username": "root",
-    "password": "Booyah5%",
+    "password": "Popover2020!",
     "database": "todo_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
 
   "production": {
+    "username": "r49ufq5dwg2smppy",
+    "password": "a1sd1l9h5689p9pi",
+    "database": "y88kyd2v2ldv4xen",
+    "host": "xq7t6tasopo9xxbs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
