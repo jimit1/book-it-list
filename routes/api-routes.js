@@ -4,9 +4,9 @@ const passport = require("../config/passport.js");
 const db = require("../models");
 const axios = require("axios");
 require("dotenv").config();
+const newUser = {};
 
 router.post("/api/login", passport.authenticate("local"), (req, res) => {
-  console.log("howdy!");
   userId = parseInt(req.user.id);
   res.json({ email: req.user.email, id: req.user.id });
 });
@@ -39,6 +39,7 @@ router.get("/api/user_data", (req, res) => {
 });
 
 const {
+  // createUser,
   seeAllPosts,
   userPost,
   userOnePost,
@@ -132,6 +133,7 @@ const {
   updateSettings,
   seeSettings,
 } = require("../config/settings-orm");
+const connection = require("../config/connection.js");
 
 router.post("/api/addSettings", (req, res) => {
   let newSettings = {
