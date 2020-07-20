@@ -37,9 +37,9 @@ router.patch("/api/updateSettings", (req, res) => {
       mode: req.body.mode,
       profileUrl: req.body.profileUrl,
     },
-    { where: { id: req.body.userId } }
-  ).then((settings) => {
-    res.send(settings);
+    { where: { UserId: req.body.userId } }
+  ).then(() => {
+    res.send("success");
   });
 });
 

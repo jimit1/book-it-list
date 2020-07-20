@@ -8,7 +8,7 @@ require("dotenv").config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("./client/")); // extra / ?
+app.use(express.static("./client/"));
 
 app.use(
   session({

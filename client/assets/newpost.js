@@ -23,14 +23,12 @@ $(document).ready(function () {
   if (postId != null) {
     // .. enable the delete button
     $("#delete").attr("class", "waves-effect waves-light btn");
-    console.log(postIdNum);
 
     // .. and get the post using it's ID
     $.ajax({
       type: "GET",
       url: `/api/findpost/${postIdNum}`,
     }).then((res) => {
-      console.log("from findpost request", res);
       // Set the form up with values from the request
       $("#category").val(res.category);
       $("#title").val(res.title);
@@ -96,7 +94,6 @@ $(document).ready(function () {
           type: "GET",
           url: `/api/unsplash/${$("#title").val()}`,
         }).then((res) => {
-          console.log(res);
           $("#details").val(res.results[0].alt_description);
           $("#imgURL").val(res.results[0].urls.full);
           $("#form-img").attr("src", res.results[0].urls.full);
@@ -111,7 +108,6 @@ $(document).ready(function () {
           type: "GET",
           url: `/api/unsplash/${$("#title").val()}`,
         }).then((res) => {
-          console.log(res);
           $("#details").val(res.results[0].alt_description);
           $("#imgURL").val(res.results[0].urls.full);
           $("#form-img").attr("src", res.results[0].urls.full);
@@ -125,7 +121,6 @@ $(document).ready(function () {
           type: "GET",
           url: `/api/unsplash/${$("#title").val()}`,
         }).then((res) => {
-          console.log(res);
           $("#details").val(res.results[0].alt_description);
           $("#imgURL").val(res.results[0].urls.full);
           $("#form-img").attr("src", res.results[0].urls.full);
@@ -160,9 +155,6 @@ $(document).ready(function () {
     } else {
       // if there isn't a post ID..
       if (postId === null) {
-        console.log("no id");
-        console.log(post);
-
         // ..submit a new post
 
         $.ajax({
@@ -178,7 +170,6 @@ $(document).ready(function () {
       } else {
         // ..get the postId and add it to the post object
         post.postId = postIdNum;
-        console.log(post);
 
         // ..then submit an update
 

@@ -89,16 +89,9 @@ $(document).ready(function () {
     $(".collapsible").collapsible();
   };
 
-  // run the getTodos function, then run the render function with the result
-
   // define the render function
   const renderTodos = (todo) => {
-    // console.log(arr);
-
     $(".main-box").html("");
-    // arr.forEach((todo) => {
-    // console.log(todo);
-
     $(".main-box").prepend(`
       <div class="row">
         <div class="container col s12 m10 offset-m1" >
@@ -132,8 +125,6 @@ $(document).ready(function () {
       </div>
       `);
 
-    // collection list
-
     $(".collection").prepend(`
       <li class="collection-item avatar">
         <i class="material-icons circle">format_bold
@@ -143,7 +134,6 @@ $(document).ready(function () {
         </p>
         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
       </li>     `);
-    // });
   };
 });
 

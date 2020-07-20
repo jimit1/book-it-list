@@ -10,9 +10,6 @@ $(document).ready(function () {
       userName: unInput.val().trim(),
     };
 
-    console.log(User);
-    //adding a comment!
-
     $.ajax({
       type: "POST",
       url: "/api/signup",

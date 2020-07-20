@@ -17,6 +17,7 @@ router.post("/api/signup", (req, res) => {
 });
 
 // get a list of all users, their settings, and their posts
+// this route is never used in the app, but it's useful for postman
 // /api/users/all
 router.get("/api/allusers", (req, res) => {
   db.User.findAll({
