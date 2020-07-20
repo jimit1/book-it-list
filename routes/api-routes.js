@@ -23,7 +23,6 @@ router.post("/api/signup", (req, res) => {
   //     .then((allPosts) => res.json(allPosts))
   //     .catch((err) => res.json(err));
   // });
-
   db.User.create({
     email: req.body.email,
     password: req.body.password,
