@@ -71,7 +71,7 @@ $(document).ready(function () {
       $("#listView").prepend(`
         <li>
         <span class="card-title activator grey-text text-darken-4"> 
-        <div class="collapsible-header" post-id="${todo.postid}">
+        <div class="collapsible-header" post-id="${todo.id}">
             ${todo.User.userName} added '${todo.title}' to their '${todo.category}' list!
           </div>
         </span>
