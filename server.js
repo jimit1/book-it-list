@@ -27,13 +27,13 @@ app.use(apiRoutes);
 const clientRoutes = require("./routes/client-routes");
 app.use(clientRoutes);
 const userRoutes = require("./routes/user-routes.js");
-app.use("/api/users", userRoutes);
+app.use(userRoutes);
 
 const settingsRoutes = require("./routes/settings-routes.js");
-app.use("/api/settings", settingsRoutes);
+app.use(settingsRoutes);
 
 const postRoutes = require("./routes/post-routes.js");
-app.use("/api/posts", postRoutes);
+app.use(postRoutes);
 
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));

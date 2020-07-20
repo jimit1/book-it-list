@@ -4,7 +4,7 @@ const db = require("../models");
 
 // add a new user
 // /api/users/new
-router.post("/new", (req, res) => {
+router.post("/api/signup", (req, res) => {
   db.User.create({
     userName: req.body.userName,
     password: req.body.password,
@@ -18,7 +18,7 @@ router.post("/new", (req, res) => {
 
 // get a list of all users, their settings, and their posts
 // /api/users/all
-router.get("/all", (req, res) => {
+router.get("/api/allusers", (req, res) => {
   db.User.findAll({
     include: [db.Settings, db.Post],
   }).then((allUsers) => {

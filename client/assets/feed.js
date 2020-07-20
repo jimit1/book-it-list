@@ -20,7 +20,7 @@ $(document).ready(function () {
     .then(() => {
       $.ajax({
         type: "GET",
-        url: `api/seeSettings/${userID}`,
+        url: `/api/seeSettings/${userID}`,
       }).then((res) => {
         if (res[0].view === "card-view") {
           getTodos().then((res) => {
@@ -63,7 +63,7 @@ $(document).ready(function () {
         <li>
         <span class="card-title activator grey-text text-darken-4"> 
         <div class="collapsible-header">
-            <h5>${todo.userName} added '${todo.title}' to their '${todo.category}' list!</h5>
+            <h5>${todo.User.userName} added '${todo.title}' to their '${todo.category}' list!</h5>
           </div>
         </span>
           
@@ -104,7 +104,7 @@ $(document).ready(function () {
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
 
-              <p class="userName">Posted by ${todo.userName} in the '${todo.category}' category</p>
+              <p class="userName">Posted by ${todo.User.userName} in the '${todo.category}' category</p>
 
             </div>
             <div class="card-reveal">

@@ -32,16 +32,16 @@ $(document).ready(function () {
     }).then((res) => {
       console.log("from findpost request", res);
       // Set the form up with values from the request
-      $("#category").val(res[0].category);
-      $("#title").val(res[0].title);
-      $("#details").val(res[0].details);
-      $("#imgURL").val(res[0].imageURL);
-      $("#imptURL").val(res[0].imptURL);
-      $("#form-img").attr("src", res[0].imageURL);
+      $("#category").val(res.category);
+      $("#title").val(res.title);
+      $("#details").val(res.details);
+      $("#imgURL").val(res.imageURL);
+      $("#imptURL").val(res.imptURL);
+      $("#form-img").attr("src", res.imageURL);
       $("select").formSelect();
       M.textareaAutoResize($("#details"));
       $("#category").on("load", () => {});
-      if (res[0].category == "movies") {
+      if (res.category == "movies") {
         $("#searchBtn").show();
       }
     });

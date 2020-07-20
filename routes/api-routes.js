@@ -41,15 +41,15 @@ router.get("/api/user_data", (req, res) => {
       });
 });
 
-const {
-  // createUser,
-  seeAllPosts,
-  userPost,
-  userOnePost,
-  addPost,
-  deletePost,
-  editPost,
-} = require("../config/posts-orm");
+// const {
+//   // createUser,
+//   seeAllPosts,
+//   userPost,
+//   userOnePost,
+//   addPost,
+//   deletePost,
+//   editPost,
+// } = require("../config/posts-orm");
 
 router.get("/api/omdb/:title", (req, res) => {
   axios
@@ -132,19 +132,19 @@ router.get("/api/unsplash/:title", (req, res) => {
 // });
 
 // edit a todo; works on postman, not on web.
-router.patch("/api/update", (req, res) => {
-  let updatedPost = {
-    postId: req.body.postId,
-    category: req.body.category,
-    title: req.body.title,
-    details: req.body.details,
-    imageURL: req.body.imageURL,
-    imptURL: req.body.imptURL,
-  };
-  editPost(updatedPost)
-    .then((editRes) => res.json(editRes))
-    .catch((err) => res.json(err));
-});
+// router.patch("/api/update", (req, res) => {
+//   let updatedPost = {
+//     postId: req.body.postId,
+//     category: req.body.category,
+//     title: req.body.title,
+//     details: req.body.details,
+//     imageURL: req.body.imageURL,
+//     imptURL: req.body.imptURL,
+//   };
+//   editPost(updatedPost)
+//     .then((editRes) => res.json(editRes))
+//     .catch((err) => res.json(err));
+// });
 
 const {
   addSettings,
@@ -175,17 +175,17 @@ const {
 //     .catch((err) => res.json(err));
 // });
 
-router.patch("/api/updateSettings", (req, res) => {
-  let updatedSettings = {
-    userId: req.body.userId,
-    profileUrl: req.body.profileUrl,
-    mode: req.body.mode,
-    font: req.body.font,
-    view: req.body.view,
-  };
-  updateSettings(updatedSettings)
-    .then((editRes) => res.json(editRes))
-    .catch((err) => res.json(err));
-});
+// router.patch("/api/updateSettings", (req, res) => {
+//   let updatedSettings = {
+//     userId: req.body.userId,
+//     profileUrl: req.body.profileUrl,
+//     mode: req.body.mode,
+//     font: req.body.font,
+//     view: req.body.view,
+//   };
+//   updateSettings(updatedSettings)
+//     .then((editRes) => res.json(editRes))
+//     .catch((err) => res.json(err));
+// });
 
 module.exports = router;

@@ -52,7 +52,7 @@ $(document).ready(function () {
     getOnePost(postId)
       .then((res) => {
         console.log(res);
-        renderTodos(res[0]);
+        renderTodos(res);
       })
       .then(() => {
         $.ajax({
@@ -72,7 +72,7 @@ $(document).ready(function () {
         <li>
         <span class="card-title activator grey-text text-darken-4"> 
         <div class="collapsible-header" post-id="${todo.postid}">
-            ${todo.userName} added '${todo.title}' to their '${todo.category}' list!
+            ${todo.User.userName} added '${todo.title}' to their '${todo.category}' list!
           </div>
         </span>
           
@@ -113,7 +113,7 @@ $(document).ready(function () {
               <span class="card-title activator grey-text text-darken-4"
                 >${todo.title}<i class="material-icons right">more_vert</i></span
               >
-              <p><a class="userName">${todo.userName}</a></p>
+              <p><a class="userName">${todo.User.userName}</a></p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4 grab-mode"
@@ -124,7 +124,7 @@ $(document).ready(function () {
               </p> <br>
               <p class="imptURL">${todo.imptURL}</p>
 
-              <a href="/newpost?id=${todo.postid}"><i class="material-icons">edit</i>Update</a>
+              <a href="/newpost?id=${todo.id}"><i class="material-icons">edit</i>Update</a>
 
             </div>
           </div>
