@@ -1,8 +1,12 @@
-const bcryptjs = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
-//User
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("User", {
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -11,29 +15,33 @@ module.exports = function (sequelize, DataTypes) {
         isEmail: true,
       },
     },
-
     password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    userName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-    },
   });
 
-  //Custom Method --used in line 20 of passport.js
   User.prototype.validPassword = function (password) {
-    return bcryptjs.compareSync(password, this.password);
+    return bcrypt.compareSync(password, this.password);
   };
 
   User.addHook("beforeCreate", (user) => {
-    user.password = bcryptjs.hashSync(
+    user.password = bcrypt.hashSync(
       user.password,
-      bcryptjs.genSaltSync(10),
+      bcrypt.genSaltSync(10),
       null
     );
   });
+
+  User.associate = (models) => {
+    User.hasMany(models.Post, {
+      onDelete: "cascade",
+    });
+
+    User.hasOne(models.Settings, {
+      onDelete: "cascade",
+    });
+  };
+
   return User;
 };
