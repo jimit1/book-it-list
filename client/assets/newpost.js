@@ -91,7 +91,8 @@ $(document).ready(function () {
 
       // if the category is 'places'
 
-      if ($("#category").val() == "places") {
+      // if ($("#category").val() == "food")
+      else {
         $.ajax({
           type: "GET",
           url: `/api/unsplash/${$("#title").val()}`,
@@ -106,32 +107,32 @@ $(document).ready(function () {
 
       // if the category is 'food'
 
-      if ($("#category").val() == "food") {
-        $.ajax({
-          type: "GET",
-          url: `/api/unsplash/${$("#title").val()}`,
-        }).then((res) => {
-          console.log(res);
-          $("#details").val(res.results[0].alt_description);
-          $("#imgURL").val(res.results[0].urls.full);
-          $("#form-img").attr("src", res.results[0].urls.full);
-          M.textareaAutoResize($("#details"));
-        });
-      }
+      // if ($("#category").val() == "food") {
+      //   $.ajax({
+      //     type: "GET",
+      //     url: `/api/unsplash/${$("#title").val()}`,
+      //   }).then((res) => {
+      //     console.log(res);
+      //     $("#details").val(res.results[0].alt_description);
+      //     $("#imgURL").val(res.results[0].urls.full);
+      //     $("#form-img").attr("src", res.results[0].urls.full);
+      //     M.textareaAutoResize($("#details"));
+      //   });
+      // }
 
-      // if the category is 'things'
-      if ($("#category").val() == "things") {
-        $.ajax({
-          type: "GET",
-          url: `/api/unsplash/${$("#title").val()}`,
-        }).then((res) => {
-          console.log(res);
-          $("#details").val(res.results[0].alt_description);
-          $("#imgURL").val(res.results[0].urls.full);
-          $("#form-img").attr("src", res.results[0].urls.full);
-          M.textareaAutoResize($("#details"));
-        });
-      }
+      // // if the category is 'things'
+      // if ($("#category").val() == "things") {
+      //   $.ajax({
+      //     type: "GET",
+      //     url: `/api/unsplash/${$("#title").val()}`,
+      //   }).then((res) => {
+      //     console.log(res);
+      //     $("#details").val(res.results[0].alt_description);
+      //     $("#imgURL").val(res.results[0].urls.full);
+      //     $("#form-img").attr("src", res.results[0].urls.full);
+      //     M.textareaAutoResize($("#details"));
+      //   });
+      // }
     }
   });
 
