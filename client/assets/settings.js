@@ -16,6 +16,7 @@ $(document).ready(function () {
         type: "GET",
         url: `/api/seeSettings/${userId}`,
       }).then((res) => {
+        console.log(res);
         $("#form-img").attr("src", res[0].profileUrl);
         $("#profileURL").val(res[0].profileUrl);
         $("#font-choice").val(res[0].font);
@@ -28,6 +29,13 @@ $(document).ready(function () {
     });
 
   $("#saveBtn").on("click", () => {
+    console.log({
+      userId: userId,
+      profileUrl: $("#profileURL").val(),
+      mode: JSON.parse($("#mode-choice").prop("checked")),
+      font: $("#font-choice").val(),
+      view: $("#view-choice").val(),
+    });
     $.ajax({
       type: "PATCH",
       url: "/api/updateSettings",
