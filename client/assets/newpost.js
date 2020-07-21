@@ -87,36 +87,8 @@ $(document).ready(function () {
         });
       }
 
-      // if the category is 'places'
-
-      if ($("#category").val() == "places") {
-        $.ajax({
-          type: "GET",
-          url: `/api/unsplash/${$("#title").val()}`,
-        }).then((res) => {
-          $("#details").val(res.results[0].alt_description);
-          $("#imgURL").val(res.results[0].urls.full);
-          $("#form-img").attr("src", res.results[0].urls.full);
-          M.textareaAutoResize($("#details"));
-        });
-      }
-
-      // if the category is 'food'
-
-      if ($("#category").val() == "food") {
-        $.ajax({
-          type: "GET",
-          url: `/api/unsplash/${$("#title").val()}`,
-        }).then((res) => {
-          $("#details").val(res.results[0].alt_description);
-          $("#imgURL").val(res.results[0].urls.full);
-          $("#form-img").attr("src", res.results[0].urls.full);
-          M.textareaAutoResize($("#details"));
-        });
-      }
-
-      // if the category is 'things'
-      if ($("#category").val() == "things") {
+      // otherwise, make api/unsplash call for any other category
+      else {
         $.ajax({
           type: "GET",
           url: `/api/unsplash/${$("#title").val()}`,

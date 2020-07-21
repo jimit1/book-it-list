@@ -46,6 +46,9 @@ $(document).ready(function () {
         font: $("#font-choice").val(),
         view: $("#view-choice").val(),
       },
-    }).then((res) => window.location.replace("/settings"));
+    }).then((res) => {
+      M.toast({ html: "Successfully updated" });
+      setTimeout(() => window.location.replace("/feed"), 1500);
+    });
   });
 });
