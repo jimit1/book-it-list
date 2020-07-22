@@ -2608,6 +2608,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+a:active {
+  color: white;
+}
+
 .valign-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
